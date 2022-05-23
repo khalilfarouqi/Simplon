@@ -25,7 +25,6 @@ public class Salaire_employes {
 		//----------------------------------------Afficher_Class-------------------------------------
 		System.out.println(EmFi.toString());
 		
-		System.out.println("---------------------------------------M E R C I---------------------------------------------");
 	}
 	
 	public static void employesCommission() {
@@ -48,7 +47,6 @@ public class Salaire_employes {
 		//----------------------------------------Afficher_Class-------------------------------------
 		System.out.println(EmCo.toString());
 		
-		System.out.println("---------------------------------------M E R C I---------------------------------------------");
 	}
 	
 	public static void employesHoraire() {
@@ -63,20 +61,31 @@ public class Salaire_employes {
 		}while(Mode_payement != 'M' && Mode_payement != 'H');
 		
 		
+		int max_heures, taux, min_heures;
+		
+		if(Mode_payement == 'M') {max_heures = 200; min_heures = 180; taux = 25;}
+		else {max_heures = 50; min_heures = 40; taux = 20;}
+		
 		//----------------------------------------taux_horaire-------------------------------------------
-		System.out.println("\tS'il vous plais saisi votre taux horaire :");
-		taux_horaire = scan.nextDouble();
+		System.out.println("\t!!!!!REMARAUE taux horaire supereur à " + taux + " DH par heur!!!!!");
+		do {
+			System.out.println("\tS'il vous plais saisi votre taux horaire :");
+			taux_horaire = scan.nextDouble();
+		}while(taux_horaire < 25);
+		
 		//----------------------------------------heures_prestées----------------------------------------
-		System.out.println("\tS'il vous plais saisi votre heures prestées :");
-		heures_prestées = scan.nextDouble();
+		System.out.println("\t!!!!!REMARAUE heures prestées pas dépasser " + max_heures + " heures par semaine!!!!!");
+		do {
+			System.out.println("\tS'il vous plais saisi votre heures prestées :");
+			heures_prestées = scan.nextDouble();
+		}while(heures_prestées > max_heures);
 		
 		//----------------------------------------Declaration_de_Class-------------------------------
-		EmployeHoraire EmHo = new EmployeHoraire(Prenom, Nom, Da_Nai, taux_horaire, heures_prestées);
+		EmployeHoraire EmHo = new EmployeHoraire(Prenom, Nom, Da_Nai, taux_horaire, heures_prestées, min_heures);
 		
 		//----------------------------------------Afficher_Class-------------------------------------
 		System.out.println(EmHo.toString());
 		
-		System.out.println("---------------------------------------M E R C I---------------------------------------------");
 	}
 	
 	public static void main(String[] args) {
@@ -118,7 +127,9 @@ public class Salaire_employes {
 		case 'H' : 
 			employesHoraire();
 			break;
-	}
+		}
+
+		System.out.println("---------------------------------------M E R C I---------------------------------------------");
 		
 		 
 		

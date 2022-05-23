@@ -3,6 +3,7 @@ import java.time.LocalDate;
 public class EmployeHoraire extends Employes {
 	
 	private Double taux_horaire, heures_prestées;
+	int min_heures;
 
 	
 	public Double getTaux_horaire() {
@@ -25,15 +26,17 @@ public class EmployeHoraire extends Employes {
 		this.taux_horaire = taux_horaire;
 		this.heures_prestées = heures_prestées;
 	}
-	public EmployeHoraire(String Noms, String Prenom, LocalDate Date_de_naissance, Double taux_horaire, Double heures_prestées) {
+	public EmployeHoraire(String Noms, String Prenom, LocalDate Date_de_naissance, Double taux_horaire, Double heures_prestées,int min_heures) {
 		super(Noms, Prenom, Date_de_naissance);
 		this.taux_horaire = taux_horaire;
 		this.heures_prestées = heures_prestées;
+		this.min_heures = min_heures;
 	}
 	
 	
 	public void calculer_salaire() {
-		super.setSalaire_Emp(taux_horaire * heures_prestées);
+		if (heures_prestées > min_heures) super.setSalaire_Emp((min_heures * taux_horaire) + ((heures_prestées - min_heures) * (taux_horaire * 1.5)));
+		else super.setSalaire_Emp(taux_horaire * heures_prestées);
 	}
 	
 	
