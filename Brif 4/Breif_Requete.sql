@@ -50,10 +50,18 @@ Insert into Vote values (3 ,1 ,'2022-05-27' ,5)
 Insert into Vote values (3 ,2 ,'2022-05-20' ,4)
 Insert into Vote values (2 ,3 ,'2022-04-03' ,2)
 
+update Client set Ville_Client = 'New Delhi' where ID_Client = 3
+
 select * from Client
 select * from Admine
 select * from Produit
 select * from Vote
+
+select * from Client order by Ville_Client
+
+select Nom_Client, Nom_Produit from Client inner join Vote inner join Produit 
+on Produit.ID_Produit = Vote.ID_Produit on Vote.ID_Client = Client.ID_Client
+where Ville_Client = 'Madrid'
 
 select * from Vote, Produit, Admine, Client
 where Produit.ID_Admin = Admine.ID_Admin and Vote.ID_Client = Client.ID_Client
@@ -63,7 +71,10 @@ select * from Client inner join Vote inner join Produit inner join Admine
 on Admine.ID_Admin = Produit.ID_Admin on Produit.ID_Produit = Vote.ID_Produit
 on Vote.ID_Client = Client.ID_Client
 
-
+select count(vote.ID_Produit),Nom_Produit from Produit inner join vote on vote.ID_Produit = Produit.ID_Produit 
+group by vote.ID_Produit,Nom_Produit
+/*vote*/
+select * from vote inner join Produit on vote.ID_Produit = Produit.ID_Produit
 
 
 
