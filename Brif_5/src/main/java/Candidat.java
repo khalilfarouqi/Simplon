@@ -1,6 +1,6 @@
-import java.sql.*;
 
-public class Candidat implements CRUD {
+
+public class Candidat{
 	
 	private String identifiant; 
 	private String nom; 
@@ -9,10 +9,6 @@ public class Candidat implements CRUD {
 	private String adresse; 
 	private String ville; 
 	private String pays;
-	
-	public String sql;
-	public Con_Data con;
-	
 	
 	
 	public String getIdentifiant() {
@@ -74,61 +70,13 @@ public class Candidat implements CRUD {
 		this.adresse = adresse;
 		this.ville = ville;
 		this.pays = pays;
+	}
+	@Override
+	public String toString() {
+		return "Candidat [identifiant=" + identifiant + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
+				+ ", adresse=" + adresse + ", ville=" + ville + ", pays=" + pays + "]";
 	} 
 	
 	
-	public void Read() throws SQLException {
-		// TODO Auto-generated method stub
-		
-		sql = "Select * from Info";
-
-		con = new Con_Data();
-
-		Statement stat = (Statement) con.connect().createStatement();
-		ResultSet ResSet = stat.executeQuery(sql);
-
-		while (ResSet.next()) {
-			System.out.println("Identifiant : " + ResSet.getString("Identifiant") 
-								+ "Nom : " + ResSet.getString("Nom") 
-								+ "Prenom : " + ResSet.getString("Prenom") 
-								+ "Mail : " + ResSet.getString("Mail") 
-								+ "Adresse : " + ResSet.getString("Adresse") 
-								+ "Ville : " + ResSet.getString("Ville") 
-								+ "Pays : " + ResSet.getString("Pays"));
-		}
-		ResSet.close();
-	}
-	public void Create() throws SQLException {
-		// TODO Auto-generated method stub
-		sql = "Insert into Info values ('1','Farouqi','khalil','khalil.farouqi','Salam','Agadir','Maroc')";
-		
-		con = new Con_Data();
-		
-		PreparedStatement ps = con.connect().prepareStatement(sql);
-		ps.execute();
-		ps.close();
-	}
-	public void Update() throws SQLException {
-		// TODO Auto-generated method stub
-		
-		sql = "UPDATE Info SET Adresse = 'Al Houda' WHERE Identifiant = '1'";
-		
-		con = new Con_Data();
-		
-		PreparedStatement ps = con.connect().prepareStatement(sql);
-		ps.execute();
-		ps.close();
-	}
-	public void Delete() throws SQLException {
-		// TODO Auto-generated method stub
-		
-		sql = "DELETE FROM Info WHERE Identifiant = '1'";
-		
-		con = new Con_Data();
-		
-		PreparedStatement ps = con.connect().prepareStatement(sql);
-		ps.execute();
-		ps.close();
-	}
 	
 }

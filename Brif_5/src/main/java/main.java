@@ -3,14 +3,34 @@ import java.util.Scanner;
 import java.util.concurrent.locks.Condition;
 
 public class main {
-
+	
+	public static Scanner scan = new Scanner(System.in);
+	public static Candidat candid = new Candidat();
+	
+	public static void ajouter () {
+		System.out.println(" -------------Ajouter les donner suivent------------");
+		System.out.println(" --------------------Identifiant--------------------");
+		candid.setIdentifiant(scan.nextLine());
+		System.out.println(" ------------------------Nom------------------------");
+		candid.setNom(scan.nextLine());
+		System.out.println(" ----------------------Prenom-----------------------");
+		candid.setPrenom(scan.nextLine());
+		System.out.println(" -----------------------Mail------------------------");
+		candid.setMail(scan.nextLine());
+		System.out.println(" ----------------------Adresse----------------------");
+		candid.setAdresse(scan.nextLine());
+		System.out.println(" -----------------------Ville-----------------------");
+		candid.setVille(scan.nextLine());
+		System.out.println(" -----------------------Pays------------------------");
+		candid.setPays(scan.nextLine());
+		System.out.println(" ---------------------------------------------------");
+	}
+	
 	public static void main(String[] args) throws SQLException {
-		// TODO Auto-generated me
 		
-		Scanner scan = new Scanner(System.in);
+		
 		int choi;
-		String sql;
-		Candidat cond = new Candidat();
+		User use = new User();
 		
 		Con_Data con = new Con_Data();
 		do {
@@ -28,17 +48,17 @@ public class main {
 			
 			
 			switch(choi) {
-				case 1 : 
-						cond.Create();
+				case 1 : ajouter();
+					use.Create(candid);
 				break;
 				case 2 : 
-						cond.Read();
+					use.Read(candid);
 				break;
 				case 3 : 
-						cond.Update();
+					use.Update();
 				break;
 				case 4 : 
-						cond.Delete();
+					use.Delete(candid);
 				break;
 				case 0 : System.out.println("-----------------------Merci-----------------------");
 						con.connect().close();
