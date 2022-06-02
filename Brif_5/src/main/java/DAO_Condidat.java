@@ -1,9 +1,9 @@
 import java.sql.*;
 
-public class User implements CRUD  {
+public class DAO_Condidat implements DAO  {
 	
 	public String sql;
-	public Con_Data con;
+	public Connect con;
 	
 	public void Read(Candidat candid) throws SQLException {
 		// TODO Auto-generated method stub
@@ -11,7 +11,7 @@ public class User implements CRUD  {
 		try {
 			sql = "Select * from Info";
 
-			con = new Con_Data();
+			con = new Connect();
 
 			Statement stat = (Statement) con.connect().createStatement();
 			ResultSet ResSet = stat.executeQuery(sql);
@@ -39,13 +39,8 @@ public class User implements CRUD  {
 		// TODO Auto-generated method stub
 		
 		try {
-			con = new Con_Data();
-
-			/*PreparedStatement ps = con.connect().prepareStatement("Insert into Info values ("
-			+candid.getIdentifiant()+","+candid.getNom()+","+candid.getPrenom()+","+candid.getMail()+","+candid.getAdresse()
-			+","+candid.getVille()+","+candid.getPays()+")");*/
-
-
+			con = new Connect();
+			
 			PreparedStatement ps = con.connect().prepareStatement("Insert into Info values (?,?,?,?,?,?,?)");
 			 
 			ps.setString(1, candid.getIdentifiant());
@@ -68,7 +63,7 @@ public class User implements CRUD  {
 	public void Update(Candidat candid) throws SQLException {
 		// TODO Auto-generated method stub
 		try {
-			con = new Con_Data();
+			con = new Connect();
 			
 			sql = "UPDATE Info SET Nom = '"+ candid.getNom() +"',Prenom = '"+ candid.getPrenom() +"',Mail = '" + candid.getMail() + "',"
 					+ "Adresse = '"+ candid.getAdresse() +"',Ville = '"+ candid.getVille() +"',Pays = '"+ candid.getPays() +"' "
@@ -89,7 +84,7 @@ public class User implements CRUD  {
 	public void Delete(Candidat candid) throws SQLException {
 		// TODO Auto-generated method stub
 		try {
-			con = new Con_Data();
+			con = new Connect();
 			
 			sql = "DELETE FROM Info WHERE Identifiant = '" + candid.getIdentifiant() + "'";
 

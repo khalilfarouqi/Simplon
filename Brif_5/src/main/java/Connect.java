@@ -1,9 +1,9 @@
 import java.sql.*;
 
-public class Con_Data {
+public class Connect {
 	public Connection con;
 	
-	public Con_Data() {}
+	public Connect() {}
 	
 	public Connection connect() {
 		

@@ -58,9 +58,9 @@ public class main {
 		
 		
 		int choi;
-		User use = new User();
+		DAO_Condidat use = new DAO_Condidat();
 		
-		Con_Data con = new Con_Data();
+		Connect con = new Connect();
 		do {
 			
 			//System.out.print("\f");
@@ -101,19 +101,6 @@ public class main {
 		}while(choi != 0);
 		
 		
-		
-		
 	}
 
 }
-
-
-/*while (ResSet.next()) {
-	System.out.println("Identifiant : " + ResSet.getString("Identifiant") 
-						+ "Nom : " + ResSet.getString("Nom") 
-						+ "Prenom : " + ResSet.getString("Prenom") 
-						+ "Mail : " + ResSet.getString("Mail") 
-						+ "Adresse : " + ResSet.getString("Adresse") 
-						+ "Ville : " + ResSet.getString("Ville") 
-						+ "Pays : " + ResSet.getString("Pays"));
-}*/

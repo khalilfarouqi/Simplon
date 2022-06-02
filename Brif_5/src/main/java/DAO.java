@@ -1,6 +1,6 @@
 import java.sql.SQLException;
 
-public interface CRUD {
+public interface DAO {
 	
 	public void Create(Candidat candid) throws SQLException;
 	public void Read(Candidat candid) throws SQLException;
