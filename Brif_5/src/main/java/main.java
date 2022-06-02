@@ -5,24 +5,52 @@ import java.util.concurrent.locks.Condition;
 public class main {
 	
 	public static Scanner scan = new Scanner(System.in);
-	public static Candidat candid = new Candidat();
+	public static Candidat candid;
 	
 	public static void ajouter () {
 		System.out.println(" -------------Ajouter les donner suivent------------");
 		System.out.println(" --------------------Identifiant--------------------");
-		candid.setIdentifiant(scan.nextLine());
+		candid.setIdentifiant(scan.next());
 		System.out.println(" ------------------------Nom------------------------");
-		candid.setNom(scan.nextLine());
+		candid.setNom(scan.next());
 		System.out.println(" ----------------------Prenom-----------------------");
-		candid.setPrenom(scan.nextLine());
+		candid.setPrenom(scan.next());
 		System.out.println(" -----------------------Mail------------------------");
-		candid.setMail(scan.nextLine());
+		candid.setMail(scan.next());
 		System.out.println(" ----------------------Adresse----------------------");
-		candid.setAdresse(scan.nextLine());
+		candid.setAdresse(scan.next());
 		System.out.println(" -----------------------Ville-----------------------");
-		candid.setVille(scan.nextLine());
+		candid.setVille(scan.next());
 		System.out.println(" -----------------------Pays------------------------");
-		candid.setPays(scan.nextLine());
+		candid.setPays(scan.next());
+		System.out.println(" ---------------------------------------------------");
+	}
+	
+	public static void miss_jour() {
+		System.out.println(" --------------------Misse a jour-------------------");
+		System.out.println(" ----------Choisir Identifiant de candidat----------");
+		candid.setIdentifiant(scan.next());
+		System.out.println(" -------------Ajouter les nouveau donner------------");
+		System.out.println(" ------------------------Nom------------------------");
+		candid.setNom(scan.next());
+		System.out.println(" ----------------------Prenom-----------------------");
+		candid.setPrenom(scan.next());
+		System.out.println(" -----------------------Mail------------------------");
+		candid.setMail(scan.next());
+		System.out.println(" ----------------------Adresse----------------------");
+		candid.setAdresse(scan.next());
+		System.out.println(" -----------------------Ville-----------------------");
+		candid.setVille(scan.next());
+		System.out.println(" -----------------------Pays------------------------");
+		candid.setPays(scan.next());
+		System.out.println(" ---------------------------------------------------");
+		
+	}
+	
+	public static void Supprimer() {
+		System.out.println(" ---------------------Supprimer---------------------");
+		System.out.println(" ----------Choisir Identifiant de candidat----------");
+		candid.setIdentifiant(scan.next());
 		System.out.println(" ---------------------------------------------------");
 	}
 	
@@ -34,6 +62,9 @@ public class main {
 		
 		Con_Data con = new Con_Data();
 		do {
+			
+			//System.out.print("\f");
+			
 			System.out.println(" ----------MENU---------");
 			System.out.println("|\t1-Ajouter\t|");
 			System.out.println("|\t2-Afficher\t|");
@@ -46,6 +77,7 @@ public class main {
 				choi = scan.nextInt();
 			}while(choi < 0 && choi > 4);
 			
+			candid = new Candidat();
 			
 			switch(choi) {
 				case 1 : ajouter();
@@ -55,9 +87,11 @@ public class main {
 					use.Read(candid);
 				break;
 				case 3 : 
-					use.Update();
+					miss_jour();
+					use.Update(candid);
 				break;
 				case 4 : 
+					Supprimer();
 					use.Delete(candid);
 				break;
 				case 0 : System.out.println("-----------------------Merci-----------------------");

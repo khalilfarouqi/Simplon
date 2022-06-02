@@ -71,6 +71,7 @@ public class Candidat{
 		this.ville = ville;
 		this.pays = pays;
 	}
+	
 	@Override
 	public String toString() {
 		return "Candidat [identifiant=" + identifiant + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
