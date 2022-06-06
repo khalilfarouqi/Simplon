@@ -67,6 +67,28 @@ public class main {
 		
 	}
 	
+	public static int Lister_Produit() {
+		int choixL;
+		
+		System.out.println("+---------------------Lister--------------------+");
+		System.out.println("|\t\t 1 - Tous \t\t\t|");
+		System.out.println("|\t\t 2 - Par Categories \t\t|");
+		System.out.println("+-----------------------------------------------+");
+		
+		do {
+			choixL = scan.nextInt();
+		} while (choixL != 1 && choixL != 2);
+		return choixL;
+	}
+	
+	public static int Lister_Produit_Cate() {
+		System.out.println("+---------------------Lister--------------------+");
+		System.out.println("+---------------Choisir-Categories--------------+");
+		int cat_int = scan.nextInt();
+		System.out.println("+-----------------------------------------------+");
+		return cat_int;
+	}
+	
 	//_______________________________Categories_______________________________
 	
 	public static void Ajouter_Categories(Categories categ) {
@@ -128,10 +150,6 @@ public class main {
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
-		//--------------------------------------------------
-		//Lister_par_catégorie_et_afficher_les_catégorie  
-		//--------------------------------------------------
-		
 		System.out.println("+----------------------HELLO---------------------+");
 		
 		int choixT,choix;
@@ -144,7 +162,7 @@ public class main {
 
 			System.out.println("+--------------Choisir-quelle-table-------------+");
 			System.out.println("|\t\t 1 - Produits \t\t\t|");
-			System.out.println("|\t\t 2 - Categories \t\t\t|");
+			System.out.println("|\t\t 2 - Categories \t\t|");
 			System.out.println("|\t\t 3 - Unite \t\t\t|");
 			System.out.println("|\t\t 0 - Quitter \t\t\t|");
 			System.out.println("+-----------------------------------------------+");
@@ -191,7 +209,11 @@ public class main {
 						DPro.modifier(Produit);
 						break;
 					case 4:
-						DPro.lister(Produit);
+						if (Lister_Produit() == 1) DPro.lister(Produit);
+						else {
+							DPro.lister_Catg_Ajou(Produit);
+							DPro.lister_Catg(Produit, Lister_Produit_Cate());
+						}
 						break;
 					}
 				}else if (choixT == 2) {
@@ -235,7 +257,10 @@ public class main {
 		}while(choix != 0);
 		
 		con.connexion().close();
-		System.out.println("--------------------MERCI--------------------");
+		
+		System.out.println("+-----------------------------------------------+");
+		System.out.println("|                     MERCI                     |");
+		System.out.println("+-----------------------------------------------+");
 		
 	}
 

@@ -86,7 +86,7 @@ public class DAO_Produits implements DAO<Produits> {
 			ResultSet ResSet = stat.executeQuery(sql);
 
 			while (ResSet.next()) {
-				Prod.setId_Produit(ResSet.getInt("id_produit"));
+				Prod.setId_Produit(ResSet.getInt("id_Produits"));
 				Prod.setCode(ResSet.getInt("code"));
 				Prod.setNom(ResSet.getString("nom"));
 				Prod.setQte_Stock(ResSet.getInt("QteStock"));
@@ -102,5 +102,51 @@ public class DAO_Produits implements DAO<Produits> {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public void lister_Catg(Produits Prod,int categ) {
+		// TODO Auto-generated method stub
+		try {
+			sql = "Select * from Produits where id_categories = " + categ;
 
+			con = new Connect();
+
+			Statement stat = (Statement) con.connexion().createStatement();
+			ResultSet ResSet = stat.executeQuery(sql);
+
+			while (ResSet.next()) {
+				Prod.setId_Produit(ResSet.getInt("id_Produits"));
+				Prod.setCode(ResSet.getInt("code"));
+				Prod.setNom(ResSet.getString("nom"));
+				Prod.setQte_Stock(ResSet.getInt("QteStock"));
+				Prod.setPrix_Uniter(ResSet.getInt("PrixUniter"));
+				Prod.setId_categories(ResSet.getInt("id_categories"));
+				Prod.setId_unite(ResSet.getInt("id_unite"));
+				
+				System.out.println(Prod.toString());
+			}
+			
+			ResSet.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void lister_Catg_Ajou(Produits Prod) {
+		try {
+			sql = "select * from Lister_Categ";
+
+			con = new Connect();
+
+			Statement stat = (Statement) con.connexion().createStatement();
+			ResultSet ResSet = stat.executeQuery(sql);
+
+			while (ResSet.next()) {
+				System.out.println("Taper "+ResSet.getInt("id_categories") + " pour " + ResSet.getString("nom"));
+			}
+			
+			ResSet.close();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }
