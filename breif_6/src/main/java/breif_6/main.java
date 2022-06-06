@@ -1,36 +1,163 @@
 package breif_6;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+
+import Class.Categories;
+import Class.Connect;
+import Class.Produits;
+import Class.Unite;
+import DAO.DAO_Categories;
+import DAO.DAO_Produits;
+import DAO.DAO_Unite;
 
 public class main {
 	
 	public static Scanner scan = new Scanner(System.in);
+	public static Produits Produit;
+	public static Unite Unit;
+	public static Categories categ;
+	
+	//_______________________________Produit_______________________________
+	
+	public static void Ajouter_Produits(Produits Produit) {
+		System.out.println("+-----------------Ajouter-les-donner-suivent---------------+");
+		System.out.println(" -------------------------id_produit------------------------");
+		Produit.setId_Produit(scan.nextInt());
+		System.out.println(" ---------------------------code----------------------------");
+		Produit.setCode(scan.nextInt());
+		System.out.println(" ----------------------------nom----------------------------");
+		Produit.setNom(scan.next());
+		System.out.println(" -------------------------QteStock--------------------------");
+		Produit.setQte_Stock(scan.nextInt());
+		System.out.println(" ------------------------PrixUniter-------------------------");
+		Produit.setPrix_Uniter(scan.nextInt());
+		System.out.println(" -----------------------id_categories-----------------------");
+		Produit.setId_categories(scan.nextInt());
+		System.out.println(" -------------------------id_unite--------------------------");
+		Produit.setId_unite(scan.nextInt());
+		System.out.println("+----------------------------------------------------------+");
+	}
+	
+	public static void Supprimer_Produits(Produits Produit) {
+		System.out.println("+-------------------------Supprimer------------------------+");
+		System.out.println(" -------------------Choisir-id-de-Produits------------------");
+		Produit.setId_Produit(scan.nextInt());
+		System.out.println("+----------------------------------------------------------+");
+	}
 
-	public static void ajouter() {
+	public static void Modifier_Produits(Produits Produit) {
+		System.out.println("+-----------------------Misse-a-jour-----------------------+");
+		System.out.println(" -------------------Choisir-Id-de-Produits------------------");
+		Produit.setId_Produit(scan.nextInt());
+		System.out.println(" -----------------Ajouter-les-nouveau-donner----------------");
+		System.out.println(" ---------------------------code----------------------------");
+		Produit.setCode(scan.nextInt());
+		System.out.println(" ----------------------------nom----------------------------");
+		Produit.setNom(scan.next());
+		System.out.println(" -------------------------QteStock--------------------------");
+		Produit.setQte_Stock(scan.nextInt());
+		System.out.println(" ------------------------PrixUniter-------------------------");
+		Produit.setPrix_Uniter(scan.nextInt());
+		System.out.println(" -----------------------id_categories-----------------------");
+		Produit.setId_categories(scan.nextInt());
+		System.out.println(" -------------------------id_unite--------------------------");
+		Produit.setId_unite(scan.nextInt());
+		System.out.println("+----------------------------------------------------------+");
 		
 	}
 	
-	public static void main(String[] args) {
+	//_______________________________Categories_______________________________
+	
+	public static void Ajouter_Categories(Categories categ) {
+		System.out.println("+-----------------Ajouter-les-donner-suivent---------------+");
+		System.out.println(" -----------------------id_Categories---------------------- ");
+		categ.setId_Categories(scan.nextInt());
+		System.out.println(" ----------------------------nom--------------------------- ");
+		categ.setNom(scan.next());
+		System.out.println("+----------------------------------------------------------+");
+	}
+	
+	public static void Supprimer_Categories(Categories categ) {
+		System.out.println("+-------------------------Supprimer------------------------+");
+		System.out.println(" ------------------Choisir-id-de-Categories---------------- ");
+		categ.setId_Categories(scan.nextInt());
+		System.out.println("+----------------------------------------------------------+");
+	}
+
+	public static void Modifier_Categories(Categories categ) {
+		System.out.println("+-----------------------Misse-a-jour-----------------------+");
+		System.out.println(" ------------------Choisir-Id-de-Categories-----------------");
+		categ.setId_Categories(scan.nextInt());
+		System.out.println(" -----------------Ajouter-les-nouveau-donner----------------");
+		System.out.println(" ----------------------------nom----------------------------");
+		categ.setNom(scan.next());
+		System.out.println("+----------------------------------------------------------+");
+		
+	}
+	
+	//_______________________________Unite_______________________________
+	
+	public static void Ajouter_Unite(Unite Unit) {
+		System.out.println("+-----------------Ajouter-les-donner-suivent---------------+");
+		System.out.println(" -------------------------id_Unite------------------------- ");
+		Unit.setId_Unite(scan.nextInt());
+		System.out.println(" ----------------------------nom--------------------------- ");
+		Unit.setNom(scan.next());
+		System.out.println("+----------------------------------------------------------+");
+	}
+	
+	public static void Supprimer_Unite(Unite Unit) {
+		System.out.println("+-------------------------Supprimer------------------------+");
+		System.out.println(" ---------------------Choisir-id-de-Unite------------------ ");
+		Unit.setId_Unite(scan.nextInt());
+		System.out.println("+----------------------------------------------------------+");
+	}
+
+	public static void Modifier_Unite(Unite Unit) {
+		System.out.println("+-----------------------Misse-a-jour-----------------------+");
+		System.out.println(" --------------------Choisir-Id-de-Unite------------------- ");
+		Unit.setId_Unite(scan.nextInt());
+		System.out.println(" -----------------Ajouter-les-nouveau-donner----------------");
+		System.out.println(" ----------------------------nom----------------------------");
+		Unit.setNom(scan.next());
+		System.out.println("+----------------------------------------------------------+");
+		
+	}
+	
+	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
+		
+		//--------------------------------------------------
+		//Lister_par_catégorie_et_afficher_les_catégorie  
+		//--------------------------------------------------
+		
 		System.out.println("+----------------------HELLO---------------------+");
 		
 		int choixT,choix;
-		
+		Connect con = new Connect();
+		DAO_Produits DPro = new DAO_Produits();
+		DAO_Categories DCat = new DAO_Categories();
+		DAO_Unite DUni = new DAO_Unite();
 		
 		do {
-			do {
 
-				System.out.println("+--------------Choisir-quelle-table-------------+");
-				System.out.println("|\t\t 1 - Produits \t\t\t|");
-				System.out.println("|\t\t 2 - Categories \t\t\t|");
-				System.out.println("|\t\t 3 - Unite \t\t\t|");
-				System.out.println("|\t\t 0 - Quitter \t\t\t|");
-				System.out.println("+-----------------------------------------------+");
+			System.out.println("+--------------Choisir-quelle-table-------------+");
+			System.out.println("|\t\t 1 - Produits \t\t\t|");
+			System.out.println("|\t\t 2 - Categories \t\t\t|");
+			System.out.println("|\t\t 3 - Unite \t\t\t|");
+			System.out.println("|\t\t 0 - Quitter \t\t\t|");
+			System.out.println("+-----------------------------------------------+");
 				
-				do {
-					choixT = scan.nextInt();
-				} while (choixT < 0 && choixT > 3);
+			do {
+				choixT = scan.nextInt();
+				if (choixT == 0) {
+					System.out.println("--------------------MERCI--------------------");
+					return;
+				}
+			} while (choixT < 0 || choixT > 3);
 
+			do {
 				
 				System.out.println("+----------------------MENU---------------------+");
 				System.out.println("|\t\t 1 - Ajouter \t\t\t|");
@@ -43,33 +170,73 @@ public class main {
 				
 				do {
 					choix = scan.nextInt();
-				} while (choix < 0 && choix > 4);
-			} while (choix == -1);
+				} while (choix < -1 || choix > 4);
+
+				Produit = new Produits();
+				categ = new Categories();
+				Unit = new Unite();
+
+				if(choixT == 1) {
+					switch (choix) {
+					case 1:
+						Ajouter_Produits(Produit);
+						DPro.Ajouter(Produit);
+						break;
+					case 2:
+						Supprimer_Produits(Produit);
+						DPro.supprimer(Produit);
+						break;
+					case 3:
+						Modifier_Produits(Produit);
+						DPro.modifier(Produit);
+						break;
+					case 4:
+						DPro.lister(Produit);
+						break;
+					}
+				}else if (choixT == 2) {
+					switch (choix) {
+					case 1:
+						Ajouter_Categories(categ);
+						DCat.Ajouter(categ);
+						break;
+					case 2:
+						Supprimer_Categories(categ);
+						DCat.supprimer(categ);
+						break;
+					case 3:
+						Modifier_Categories(categ);
+						DCat.modifier(categ);
+						break;
+					case 4:
+						DCat.lister(categ);
+						break;
+					}
+				}else if (choixT == 3) {
+					switch (choix) {
+					case 1:
+						Ajouter_Unite(Unit);
+						DUni.Ajouter(Unit);
+						break;
+					case 2:
+						Supprimer_Unite(Unit);
+						DUni.supprimer(Unit);
+						break;
+					case 3:
+						Modifier_Unite(Unit);
+						DUni.modifier(Unit);
+						break;
+					case 4:
+						DUni.lister(Unit);
+						break;
+					}
+				}
+			} while (choix != -1 && choix != 0 && choixT != 0);
 		}while(choix != 0);
 		
-		if(choixT == 1) {
-			
-		}else if (choixT == 2) {
-			
-		}else if (choixT == 3) {
-			
-		}
-		switch (choix) {
-		case 1:
-			
-			break;
-		case 2:
-			
-			break;
-		case 3:
-			
-			break;
-		case 4:
-			
-			break;
-		}
-
+		con.connexion().close();
 		System.out.println("--------------------MERCI--------------------");
+		
 	}
 
 }

@@ -78,7 +78,7 @@ public class DAO_Produits implements DAO<Produits> {
 	public void lister(Produits Prod) {
 		// TODO Auto-generated method stub
 		try {
-			sql = "Select * from Produits";
+			sql = "Select * from produits";
 
 			con = new Connect();
 
@@ -86,7 +86,7 @@ public class DAO_Produits implements DAO<Produits> {
 			ResultSet ResSet = stat.executeQuery(sql);
 
 			while (ResSet.next()) {
-				Prod.setId_Produit(ResSet.getInt("id_Produits"));
+				Prod.setId_Produit(ResSet.getInt("id_produit"));
 				Prod.setCode(ResSet.getInt("code"));
 				Prod.setNom(ResSet.getString("nom"));
 				Prod.setQte_Stock(ResSet.getInt("QteStock"));
