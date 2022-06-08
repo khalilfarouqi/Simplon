@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormController">
    <children>
       <TextField layoutX="69.0" layoutY="104.0" prefWidth="220.0" promptText="Nom" />
       <TableView layoutX="69.0" layoutY="231.0" prefHeight="260.0" prefWidth="758.0">
@@ -16,10 +16,10 @@
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Button layoutX="676.0" layoutY="45.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Ajouter" />
-      <Button layoutX="676.0" layoutY="87.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Modifier" />
-      <Button layoutX="676.0" layoutY="131.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Supprimer" />
-      <Button layoutX="676.0" layoutY="177.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Afficher" />
+      <Button layoutX="676.0" layoutY="45.0" mnemonicParsing="false" onAction="#OnClickAjouter" prefHeight="30.0" prefWidth="150.0" text="Ajouter" />
+      <Button layoutX="676.0" layoutY="87.0" mnemonicParsing="false" onAction="#OnClickModifier" prefHeight="30.0" prefWidth="150.0" text="Modifier" />
+      <Button layoutX="676.0" layoutY="131.0" mnemonicParsing="false" onAction="#OnClickSupprimer" prefHeight="30.0" prefWidth="150.0" text="Supprimer" />
+      <Button layoutX="676.0" layoutY="177.0" mnemonicParsing="false" onAction="#OnClickAfficher" prefHeight="30.0" prefWidth="150.0" text="Afficher" />
       <TextField layoutX="69.0" layoutY="60.0" prefWidth="220.0" promptText="Identifiant" />
       <TextField layoutX="69.0" layoutY="150.0" prefWidth="220.0" promptText="Prenom" />
       <TextField layoutX="385.0" layoutY="60.0" prefWidth="220.0" promptText="Mail" />
