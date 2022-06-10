@@ -1,12 +1,12 @@
-package DB;
+package Classes;
 import java.sql.*;
 
 public class Connect {
-	public Connection con;
 	
+	public Message_Box Msg_Box = new Message_Box();
 	public Connect() {}
 	
-	public Connection connect() {
+	public Connection Connexion() {
 		
 		try {
 
@@ -14,9 +14,9 @@ public class Connect {
 			
 			
 		}catch(SQLException e) {
-			System.out.println(e.getMessage());
-			return null;
+			Msg_Box.message_box(e);
 		}
+		return null;
 	}
 	
 }

@@ -1,7 +1,12 @@
-package DB;
+package DAO_Pa;
 import java.sql.*;
 
-public class DAO_Condidat implements DAO  {
+import Classes.*;
+import javafx.scene.control.Alert;
+
+public class DAO_Candidat implements DAO  {
+	
+	Message_Box Msg_Box = new Message_Box();
 	
 	public String sql;
 	public Connect con;
@@ -14,7 +19,7 @@ public class DAO_Condidat implements DAO  {
 
 			con = new Connect();
 
-			Statement stat = (Statement) con.connect().createStatement();
+			Statement stat = (Statement) con.Connexion().createStatement();
 			ResultSet ResSet = stat.executeQuery(sql);
 
 			while (ResSet.next()) {
@@ -26,23 +31,53 @@ public class DAO_Condidat implements DAO  {
 				candid.setAdresse(ResSet.getString("Adresse"));
 				candid.setVille(ResSet.getString("Ville"));
 				candid.setPays(ResSet.getString("Pays"));
+			}
+			ResSet.close();
+		}catch(Exception e) {
+			Msg_Box.message_box(e);
+		}
+	}
+	public void Read_ID(Candidat candid,String Id){
+		// TODO Auto-generated method stub
+		
+		try {
+			sql = "Select * from Info where Identifiant = '" + Id + "'";
+
+			con = new Connect();
+
+			Statement stat = (Statement) con.Connexion().createStatement();
+			ResultSet ResSet = stat.executeQuery(sql);
+
+			while (ResSet.next()) {
 				
-				System.out.println(candid.toString());
+				candid.setIdentifiant(ResSet.getString("Identifiant"));
+				candid.setNom(ResSet.getString("Nom"));
+				candid.setPrenom(ResSet.getString("Prenom"));
+				candid.setMail(ResSet.getString("Mail"));
+				candid.setAdresse(ResSet.getString("Adresse"));
+				candid.setVille(ResSet.getString("Ville"));
+				candid.setPays(ResSet.getString("Pays"));
+
+				Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Message Here...");
+			    alert.setHeaderText("Candidat Info");
+			    alert.setContentText(candid.toString());
+			    alert.showAndWait();
 				
 			}
 			ResSet.close();
 		}catch(Exception e) {
-			System.out.println(e.getMessage());
+			Msg_Box.message_box(e);
 		}
 	}
 	
 	public void Create(Candidat candid) throws SQLException {
 		// TODO Auto-generated method stub
-		
 		try {
+			
 			con = new Connect();
 			
-			PreparedStatement ps = con.connect().prepareStatement("Insert into Info values (?,?,?,?,?,?,?)");
+			PreparedStatement ps = con.Connexion().prepareStatement("Insert into Info values (?,?,?,?,?,?,?)");
 			 
 			ps.setString(1, candid.getIdentifiant());
 			ps.setString(2, candid.getNom());
@@ -54,10 +89,9 @@ public class DAO_Condidat implements DAO  {
 
 			ps.execute();
 
-			con.connect().commit();
 			ps.close();
 		}catch(Exception e) {
-			System.out.println(e.getMessage());
+			Msg_Box.message_box(e);
 		}
 	}
 	
@@ -71,14 +105,14 @@ public class DAO_Condidat implements DAO  {
 							+ "WHERE Identifiant = '" + candid.getIdentifiant() + "'";
 			
 			
-			PreparedStatement ps = con.connect().prepareStatement(sql);
+			PreparedStatement ps = con.Connexion().prepareStatement(sql);
 
 			ps.execute();
 
-			con.connect().commit();
+			con.Connexion().commit();
 			ps.close();
 		}catch (Exception e) {
-			System.out.println(e.getMessage());
+			Msg_Box.message_box(e);
 		}
 	}
 	
@@ -89,11 +123,11 @@ public class DAO_Condidat implements DAO  {
 			
 			sql = "DELETE FROM Info WHERE Identifiant = '" + candid.getIdentifiant() + "'";
 
-			PreparedStatement ps = con.connect().prepareStatement(sql);
+			PreparedStatement ps = con.Connexion().prepareStatement(sql);
 			ps.execute();
 			ps.close();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			Msg_Box.message_box(e);
 		}
 		
 	}

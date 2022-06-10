@@ -1,4 +1,4 @@
-package DB;
+package Classes;
 
 
 public class Candidat{
@@ -63,6 +63,10 @@ public class Candidat{
 	
 	
 	public Candidat	() {}
+	
+	public Candidat(String identifiant) {
+		this.identifiant = identifiant;
+	}
 	public Candidat(String identifiant, String nom, String prenom, String mail, String adresse, String ville,String pays) {
 		this.identifiant = identifiant;
 		this.nom = nom;

@@ -1,5 +1,7 @@
-package DB;
+package DAO_Pa;
 import java.sql.SQLException;
+
+import Classes.Candidat;
 
 public interface DAO {
 	
