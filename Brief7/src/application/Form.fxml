@@ -12,13 +12,13 @@
       <TextField fx:id="textField_Nom" layoutX="69.0" layoutY="104.0" prefWidth="220.0" promptText="Nom" />
       <TableView fx:id="TableView_Aff" layoutX="69.0" layoutY="231.0" prefHeight="260.0" prefWidth="758.0">
         <columns>
-          <TableColumn prefWidth="108.0" text="Identifiant" />
-          <TableColumn prefWidth="108.0" text="Nom" />
-            <TableColumn prefWidth="108.0" text="Prenom" />
-            <TableColumn prefWidth="108.0" text="Mail" />
-            <TableColumn prefWidth="108.0" text="Adresse" />
-            <TableColumn prefWidth="108.0" text="Ville" />
-            <TableColumn prefWidth="108.0" text="Pays" />
+          <TableColumn fx:id="Candid_Id" prefWidth="108.0" text="Identifiant" />
+          <TableColumn fx:id="Candid_Nom" prefWidth="108.0" text="Nom" />
+            <TableColumn fx:id="Candid_Pre" prefWidth="108.0" text="Prenom" />
+            <TableColumn fx:id="Candid_Mail" prefWidth="108.0" text="Mail" />
+            <TableColumn fx:id="Candid_Adr" prefWidth="108.0" text="Adresse" />
+            <TableColumn fx:id="Candid_Ville" prefWidth="108.0" text="Ville" />
+            <TableColumn fx:id="Candid_Pays" prefWidth="108.0" text="Pays" />
         </columns>
       </TableView>
       <Button layoutX="676.0" layoutY="45.0" mnemonicParsing="false" onAction="#OnClickAjouter" prefHeight="30.0" prefWidth="150.0" text="Ajouter" />
@@ -32,5 +32,6 @@
       <TextField fx:id="textField_Ville" layoutX="385.0" layoutY="137.0" prefWidth="220.0" promptText="Ville" />
       <TextField fx:id="textField_Pays" layoutX="385.0" layoutY="176.0" prefWidth="220.0" promptText="Pays" />
       <Label layoutX="-28.0" layoutY="77.0" text="Label" />
+      <Button fx:id="Clean" layoutX="69.0" layoutY="19.0" mnemonicParsing="false" onAction="#OnClickClean" text="Clean" />
    </children>
 </AnchorPane>

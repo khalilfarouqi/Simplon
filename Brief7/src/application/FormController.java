@@ -2,12 +2,18 @@ package application;
 
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import Classes.*;
 import DAO_Pa.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 public class FormController implements Initializable {
@@ -16,75 +22,70 @@ public class FormController implements Initializable {
 	
 	public DAO_Candidat DAO_Cand = new DAO_Candidat();;
 	public Candidat Cand;
-	public Connect con;
+	public Connect con = new Connect();
 	
 	@FXML
 	private TextField textField_Id, textField_Nom, textField_Prenom, textField_MAil, textField_Adresse, textField_Ville, textField_Pays;
-	
 	@FXML
 	private TableColumn<Candidat, String> Candid_Id, Candid_Nom, Candid_Pre, Candid_Mail, Candid_Adr, Candid_Ville, Candid_Pays;
 	@FXML
 	private TableView<Candidat> TableView_Aff; 
+
 	
-
-
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		try {
-
-			Cand = new Candidat();
-			
-			DAO_Cand.Read(Cand);
-			
-			TableView_Aff = new TableView<Candidat>();
-			
-			
-			// Create column UserName (Data type of String).
-			Candid_Id = new TableColumn<Candidat, String>("Identifiant");
-
-			// Create column Email (Data type of String).
-			Candid_Nom = new TableColumn<Candidat, String>("Nom");
-
-			// Create column FullName (Data type of String).
-			Candid_Pre = new TableColumn<Candidat, String>("Prenom");
-			
-			// Create 2 sub column for FullName.
-			Candid_Mail = new TableColumn<Candidat, String>("Mail");
-
-			Candid_Adr = new TableColumn<Candidat, String>("Adresse");
-
-			Candid_Ville = new TableColumn<Candidat, String>("Ville");
-
-			Candid_Pays = new TableColumn<Candidat, String>("Pays");
-
-			TableView_Aff.getColumns().addAll(Candid_Id, Candid_Nom, Candid_Pre, Candid_Mail, Candid_Adr, Candid_Ville, Candid_Pays);
-
-			StackPane root = new StackPane();
-			root.setPadding(new Insets(7));
-			root.getChildren().add(TableView_Aff);
-
-			Stage stage = new Stage();
-			stage.setTitle("TableView (o7planning.org)");
-
-			con.Connexion().close();
-			
-			
-//			data.addAll(userDao.getAll());
-//	        clmnid.setCellValueFactory(new PropertyValueFactory<User, Integer>("idUser"));
-//	        clmnfrstnm.setCellValueFactory(new PropertyValueFactory<User, String>("firstname"));
-//	        clmlstnm.setCellValueFactory(new PropertyValueFactory<User, String>("lastname"));
-//	        clmnmail.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-//	        clmnadress.setCellValueFactory(new PropertyValueFactory<User, String>("adresse"));
-//	        clmncity.setCellValueFactory(new PropertyValueFactory<User, String>("city"));
-//	        clmncntry.setCellValueFactory(new PropertyValueFactory<User, String>("country"));
-//	        tableView.setItems(data);
-			
-		}catch(Exception e) {
-			Msg_Box.message_box(e);
-		}
+			try {
+				AfficheCandidats();
+			} catch (Exception e) {
+				// TODO: handle exception
+				Msg_Box.message_box(e,"Initialize Controller");
+			}
 		
+	}
+	
+	public ObservableList<Candidat> getCandidatList(){
+		
+        ObservableList<Candidat> candidatList = FXCollections.observableArrayList();
+
+
+        ResultSet rs;
+        try{
+            rs = con.Connexion().createStatement().executeQuery("select * from Info");
+            Candidat candidat;
+            while(rs.next()){
+            	candidat =new Candidat(rs.getString("identifiant"),rs.getString("nom"),rs.getString("prenom"),rs.getString("mail"),
+            			rs.getString("adresse"),rs.getString("ville"),rs.getString("pays"));
+            	candidatList.add(candidat);
+            }
+
+        }catch(Exception e){
+            Msg_Box.message_box(e,"Obervablelist Controller");;
+        }
+        return candidatList;
+    }
+	
+	public void AfficheCandidats(){
+		TableView_Aff.getItems().clear();
+		ObservableList<Candidat> list =getCandidatList();
+		Candid_Id.setCellValueFactory(new PropertyValueFactory<Candidat,String>("identifiant"));
+		Candid_Nom.setCellValueFactory(new PropertyValueFactory<Candidat,String>("nom"));
+		Candid_Pre.setCellValueFactory(new PropertyValueFactory<Candidat,String>("prenom"));
+		Candid_Mail.setCellValueFactory(new PropertyValueFactory<Candidat,String>("mail"));
+		Candid_Adr.setCellValueFactory(new PropertyValueFactory<Candidat,String>("adresse"));
+		Candid_Ville.setCellValueFactory(new PropertyValueFactory<Candidat,String>("ville"));
+		Candid_Pays.setCellValueFactory(new PropertyValueFactory<Candidat,String>("pays"));
+		TableView_Aff.setItems(list);
+	}
+	
+	
+	public void Clean() {
+		textField_Id.setText("");
+		textField_Nom.setText("");
+		textField_Prenom.setText("");
+		textField_MAil.setText("");
+		textField_Adresse.setText("");
+		textField_Ville.setText("");
+		textField_Pays.setText("");
 	}
 	
 	
@@ -99,9 +100,10 @@ public class FormController implements Initializable {
 			
 			con.Connexion().close();
 			
-			Msg_Box.Clean();
+			Clean();
+			AfficheCandidats();
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Ajouter Controller");
 		}
 	}
 	// Event Listener on Button.onAction
@@ -109,16 +111,25 @@ public class FormController implements Initializable {
 	public void OnClickModifier(ActionEvent event) {
 		// TODO Autogenerated
 		try {
+			
 			Cand = new Candidat(textField_Id.getText());
+			
+			Cand.setNom(textField_Nom.getText());
+			Cand.setPrenom(textField_Prenom.getText());
+			Cand.setMail(textField_MAil.getText());
+			Cand.setAdresse(textField_Adresse.getText());
+			Cand.setVille(textField_Ville.getText());
+			Cand.setPays(textField_Pays.getText());
 			
 			DAO_Cand.Update(Cand);
 			
 			con.Connexion().close();
 
-			Msg_Box.Clean();
-			
+			Clean();
+
+			AfficheCandidats();
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Modifier Controller");
 		}
 	}
 	// Event Listener on Button.onAction
@@ -126,16 +137,21 @@ public class FormController implements Initializable {
 	public void OnClickSupprimer(ActionEvent event) {
 		// TODO Autogenerated
 		try {
+
+			//TableView_Aff.getItems().remove(TableView_Aff.getSelectionModel().getSelectedItem());
+			
 			Cand = new Candidat(textField_Id.getText());
 			
 			DAO_Cand.Delete(Cand);
 			
+			
 			con.Connexion().close();
 			
-			Msg_Box.Clean();
-			
+			Clean();
+
+			AfficheCandidats();
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Supprimer Controller");
 		}
 	}
 	// Event Listener on Button.onAction
@@ -145,14 +161,24 @@ public class FormController implements Initializable {
 		try {
 			Cand = new Candidat();
 			
-			DAO_Cand.Read_ID(Cand,textField_Id.getText());
+			if(textField_Id.getText()!= "")DAO_Cand.Read_ID(Cand,textField_Id.getText());
+			AfficheCandidats();
 			
 			con.Connexion().close();
 
-			Msg_Box.Clean();
+			Clean();
 			
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Afficher Controller");
+		}
+	}
+	
+	public void OnClickClean(ActionEvent event) {
+		try {
+			Clean();
+		} catch (Exception e) {
+			// TODO: handle exception
+			Msg_Box.message_box(e, "Contriller Clean");
 		}
 	}
 }

@@ -11,20 +11,12 @@ public class Message_Box {
 	
 	public Message_Box() {}
 	
-	public void message_box(Exception e) {
+	public void message_box(Exception e,String where) {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle("Message Here...");
-	    alert.setHeaderText("Une Erreur");
+	    alert.setHeaderText(where);
 	    alert.setContentText(e.getMessage());
 	    alert.showAndWait();
 	}
-	public void Clean() {
-		textField_Id.clear();
-		textField_Nom.clear();
-		textField_Prenom.clear();
-		textField_MAil.clear();
-		textField_Adresse.clear();
-		textField_Ville.clear();
-		textField_Pays.clear();
-	}
+	
 }

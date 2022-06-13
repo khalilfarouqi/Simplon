@@ -14,7 +14,7 @@ public class Connect {
 			
 			
 		}catch(SQLException e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Connexion Connect");
 		}
 		return null;
 	}

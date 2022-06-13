@@ -2,6 +2,7 @@ package DAO_Pa;
 import java.sql.*;
 
 import Classes.*;
+import application.FormController;
 import javafx.scene.control.Alert;
 
 public class DAO_Candidat implements DAO  {
@@ -11,7 +12,7 @@ public class DAO_Candidat implements DAO  {
 	public String sql;
 	public Connect con;
 	
-	public void Read(Candidat candid) throws SQLException {
+	public void Read(Candidat candid){
 		// TODO Auto-generated method stub
 		
 		try {
@@ -32,9 +33,10 @@ public class DAO_Candidat implements DAO  {
 				candid.setVille(ResSet.getString("Ville"));
 				candid.setPays(ResSet.getString("Pays"));
 			}
+			
 			ResSet.close();
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Read DAO_Candidat");
 		}
 	}
 	public void Read_ID(Candidat candid,String Id){
@@ -67,11 +69,11 @@ public class DAO_Candidat implements DAO  {
 			}
 			ResSet.close();
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Read_ID DAO_Candidat");
 		}
 	}
 	
-	public void Create(Candidat candid) throws SQLException {
+	public void Create(Candidat candid){
 		// TODO Auto-generated method stub
 		try {
 			
@@ -91,11 +93,11 @@ public class DAO_Candidat implements DAO  {
 
 			ps.close();
 		}catch(Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Create DAO_Candidat");
 		}
 	}
 	
-	public void Update(Candidat candid) throws SQLException {
+	public void Update(Candidat candid){
 		// TODO Auto-generated method stub
 		try {
 			con = new Connect();
@@ -112,11 +114,11 @@ public class DAO_Candidat implements DAO  {
 			con.Connexion().commit();
 			ps.close();
 		}catch (Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Update DAO_Candidat");
 		}
 	}
 	
-	public void Delete(Candidat candid) throws SQLException {
+	public void Delete(Candidat candid){
 		// TODO Auto-generated method stub
 		try {
 			con = new Connect();
@@ -127,7 +129,7 @@ public class DAO_Candidat implements DAO  {
 			ps.execute();
 			ps.close();
 		} catch (Exception e) {
-			Msg_Box.message_box(e);
+			Msg_Box.message_box(e,"Delete DAO_Candidat");
 		}
 		
 	}
