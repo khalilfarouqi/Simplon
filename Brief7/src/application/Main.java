@@ -32,6 +32,10 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("Message Here...");
+			alert.setContentText(e.getMessage());
+			
 			e.printStackTrace();
 		}
 	}

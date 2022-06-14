@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="896.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FormController">
    <children>
       <TextField fx:id="textField_Nom" layoutX="69.0" layoutY="104.0" prefWidth="220.0" promptText="Nom" />
-      <TableView fx:id="TableView_Aff" layoutX="69.0" layoutY="231.0" prefHeight="260.0" prefWidth="758.0">
+      <TableView fx:id="TableView_Aff" layoutX="69.0" layoutY="231.0" onMouseClicked="#OnMouseCliked" prefHeight="260.0" prefWidth="758.0">
         <columns>
           <TableColumn fx:id="Candid_Id" prefWidth="108.0" text="Identifiant" />
           <TableColumn fx:id="Candid_Nom" prefWidth="108.0" text="Nom" />
@@ -21,7 +21,7 @@
             <TableColumn fx:id="Candid_Pays" prefWidth="108.0" text="Pays" />
         </columns>
       </TableView>
-      <Button layoutX="676.0" layoutY="45.0" mnemonicParsing="false" onAction="#OnClickAjouter" prefHeight="30.0" prefWidth="150.0" text="Ajouter" />
+      <Button layoutX="676.0" layoutY="45.0" mnemonicParsing="false" onAction="#OnClickAjouter"	 prefHeight="30.0" prefWidth="150.0" text="Ajouter" />
       <Button layoutX="676.0" layoutY="87.0" mnemonicParsing="false" onAction="#OnClickModifier" prefHeight="30.0" prefWidth="150.0" text="Modifier" />
       <Button layoutX="676.0" layoutY="131.0" mnemonicParsing="false" onAction="#OnClickSupprimer" prefHeight="30.0" prefWidth="150.0" text="Supprimer" />
       <Button layoutX="676.0" layoutY="177.0" mnemonicParsing="false" onAction="#OnClickAfficher" prefHeight="30.0" prefWidth="150.0" text="Afficher" />

@@ -3,18 +3,16 @@ package application;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 import Classes.*;
 import DAO_Pa.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+import javafx.collections.*;
+import javafx.event.*;
 
 public class FormController implements Initializable {
 	
@@ -51,11 +49,10 @@ public class FormController implements Initializable {
         ResultSet rs;
         try{
             rs = con.Connexion().createStatement().executeQuery("select * from Info");
-            Candidat candidat;
             while(rs.next()){
-            	candidat =new Candidat(rs.getString("identifiant"),rs.getString("nom"),rs.getString("prenom"),rs.getString("mail"),
+            	Cand =new Candidat(rs.getString("identifiant"),rs.getString("nom"),rs.getString("prenom"),rs.getString("mail"),
             			rs.getString("adresse"),rs.getString("ville"),rs.getString("pays"));
-            	candidatList.add(candidat);
+            	candidatList.add(Cand);
             }
 
         }catch(Exception e){
@@ -180,5 +177,16 @@ public class FormController implements Initializable {
 			// TODO: handle exception
 			Msg_Box.message_box(e, "Contriller Clean");
 		}
+	}
+
+	public void OnMouseCliked(MouseEvent mouseEvent) {
+		Cand = TableView_Aff.getSelectionModel().getSelectedItem();
+		textField_Id.setText(Cand.getIdentifiant());
+		textField_Nom.setText(Cand.getNom());
+		textField_Prenom.setText(Cand.getPrenom());
+		textField_MAil.setText(Cand.getMail());
+		textField_Adresse.setText(Cand.getAdresse());
+		textField_Ville.setText(Cand.getVille());
+		textField_Pays.setText(Cand.getPays());
 	}
 }
