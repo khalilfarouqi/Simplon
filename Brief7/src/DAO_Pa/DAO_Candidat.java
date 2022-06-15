@@ -1,8 +1,8 @@
 package DAO_Pa;
 import java.sql.*;
 
-import Classes.*;
-import application.FormController;
+import Controllers.FormController;
+import Models.*;
 import javafx.scene.control.Alert;
 
 public class DAO_Candidat implements DAO  {
@@ -134,5 +134,24 @@ public class DAO_Candidat implements DAO  {
 		
 	}
 		
+	public void test_Connection(Candidat candid, String First_Name, String Last_Name) {
+		try {
+			sql = "Select * from Info where Nom = '" + Last_Name + "' and Prenom = '" + First_Name + "'";
 
+			con = new Connect();
+
+			Statement stat = (Statement) con.Connexion().createStatement();
+			ResultSet ResSet = stat.executeQuery(sql);
+
+			while (ResSet.next()) {
+				candid.setNom(ResSet.getString("Nom"));
+				candid.setPrenom(ResSet.getString("Prenom"));
+			}
+			
+			ResSet.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			Msg_Box.message_box(e, "Test Connection in DAO_can");
+		}
+	}
 }

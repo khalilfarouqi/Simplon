@@ -1,4 +1,4 @@
-package Classes;
+package Models;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

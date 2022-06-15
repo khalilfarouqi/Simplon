@@ -1,6 +1,6 @@
 package DAO_Pa;
 
-import Classes.Candidat;
+import Models.Candidat;
 
 public interface DAO {
 	

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="535.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+   <children>
+      <Label layoutX="226.0" layoutY="72.0" text="Login">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="TextFild_FiNa" layoutX="114.0" layoutY="177.0" onKeyPressed="#OnKeyPressedFiNam" prefHeight="36.0" prefWidth="307.0" promptText="FirstName" />
+      <TextField fx:id="TextFild_LaNa" layoutX="114.0" layoutY="250.0" onKeyPressed="#OnKeyPressedLaNam" prefHeight="36.0" prefWidth="307.0" promptText="LastName" />
+      <Button layoutX="205.0" layoutY="343.0" mnemonicParsing="false" onAction="#OnClickConnected" prefHeight="36.0" prefWidth="124.0" text="Connecter" />
+      <Label fx:id="Label_Sign_in" layoutX="249.0" layoutY="386.0" onMouseClicked="#OnClickedSignIn" text="Sign In" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

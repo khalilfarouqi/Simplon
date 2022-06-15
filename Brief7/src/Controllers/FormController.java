@@ -1,4 +1,4 @@
-package application;
+package Controllers;
 
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -9,8 +9,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import Classes.*;
 import DAO_Pa.*;
+import Models.*;
 import javafx.collections.*;
 import javafx.event.*;
 
