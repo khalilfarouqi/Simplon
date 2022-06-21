@@ -56,12 +56,12 @@ public class Task {
 	
 	
 	public Task() {}
-	public Task(int iD_task, String title, String description, String status, LocalDate deadline, int iD_Category) {
+	public Task(int iD_task, String title, String description, String status, String deadline, int iD_Category) {
 		ID_task = iD_task;
 		Title = title;
 		Description = description;
 		Status = status;
-		Deadline = deadline;
+		Deadline = LocalDate.parse(deadline);
 		ID_Category = iD_Category;
 	}
 	

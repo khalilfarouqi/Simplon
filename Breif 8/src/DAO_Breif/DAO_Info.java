@@ -1,9 +1,13 @@
 package DAO_Breif;
 
+import java.sql.*;
+
 import Models.*;
 
 public class DAO_Info implements DAO<Info>{
-
+	
+	private String sql;
+	
 	public void Ajouter(Info info) {
 		// TODO Auto-generated method stub
 		
@@ -25,5 +29,7 @@ public class DAO_Info implements DAO<Info>{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 
 }
