@@ -49,6 +49,11 @@
                 <TextField fx:id="ID_TextField_ID" layoutX="74.0" layoutY="64.0" onKeyPressed="#OnKeyPressed_Id" prefHeight="35.0" prefWidth="130.0" promptText="ID" style="-fx-border-radius: 5; visibility: false;" />
                 <TextArea fx:id="ID_TextArea_Desc" layoutX="74.0" layoutY="235.0" onKeyPressed="#OnKeyPressed_Description" prefWidth="260.0" promptText="Description" style="-fx-background-radius: 5; -fx-background-color: white;" />
                 <DatePicker fx:id="ID_DatePicker" layoutX="416.0" layoutY="145.0" onAction="#OnClick_DeadLine" prefHeight="35.0" prefWidth="260.0" promptText="DeadLine" style="-fx-background-radius: 5; -fx-background-color: white;" />
+            <Label fx:id="Label_Category" layoutX="550.0" layoutY="422.0" onMouseClicked="#OnMouseClickedAdd" text="Add New Category" textFill="#2471a3">
+               <font>
+                  <Font name="Arial" size="15.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </children>

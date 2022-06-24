@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
 
         Form Open_For = new Form();
         //Open_For.Open_Form("Login");
-        Open_For.Open_Form("Home");
+        Open_For.Open_Form("Login");
     }
 
     public static void main(String[] args) {

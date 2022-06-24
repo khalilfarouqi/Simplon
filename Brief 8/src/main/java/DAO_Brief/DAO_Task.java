@@ -1,6 +1,8 @@
 package DAO_Brief;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import DAO_Brief.DAO;
 import Models.*;
@@ -16,13 +18,13 @@ public class DAO_Task implements DAO<Task> {
         // TODO Auto-generated method stub
         try {
 
-            PreparedStatement ps = Connect.connexion().prepareStatement("Insert into Task values (?,?,?,?,?,?,?)");
+            PreparedStatement ps = Connect.connexion().prepareStatement("Insert into Task values (?,?,?,?,?,?)");
 
             ps.setInt(1, task.getID_task());
             ps.setString(2, task.getTitle());
             ps.setString(3, task.getDescription());
             ps.setString(4, task.getStatus());
-            ps.setString(5, task.getDeadline().toString());
+            ps.setDate(5, java.sql.Date.valueOf(task.getDeadline()));
             ps.setInt(6, task.getID_Category());
 
             ps.execute();

@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="487.0" prefWidth="638.0" style="-fx-background-color: #AED6F1;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="$CONTROLLER_NAME$">
+<AnchorPane prefHeight="487.0" prefWidth="638.0" style="-fx-background-color: #AED6F1;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CategoryController">
    <children>
       <Button fx:id="Id_Button_Close" layoutX="592.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnAction_Close" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #FF605C; -fx-background-radius: 5;" text="X" textFill="WHITE">
          <font>
@@ -19,14 +18,14 @@
       </Button>
       <TableView fx:id="Id_TableView" layoutX="43.0" layoutY="92.0" prefHeight="360.0" prefWidth="236.0">
         <columns>
-          <TableColumn prefWidth="89.60000228881836" text="ID " />
-          <TableColumn prefWidth="144.8000030517578" text="Name" />
+          <TableColumn fx:id="Id_Column_ID" prefWidth="89.60000228881836" text="ID " />
+          <TableColumn fx:id="Id_Column_Name" prefWidth="144.8000030517578" text="Name" />
         </columns>
       </TableView>
       <Pane layoutX="296.0" layoutY="92.0" prefHeight="360.0" prefWidth="301.0" style="-fx-background-color: #EAF2F8;">
          <children>
-            <TextField fx:id="Id_TextField_ID" layoutX="33.0" layoutY="76.0" prefHeight="30.0" prefWidth="236.0" promptText="ID" />
-            <TextField fx:id="Id_TextField_Name" layoutX="33.0" layoutY="142.0" prefHeight="30.0" prefWidth="236.0" promptText="Name" />
+            <TextField fx:id="Id_TextField_ID" layoutX="33.0" layoutY="76.0" onKeyPressed="#OnKeyPressedID" prefHeight="30.0" prefWidth="236.0" promptText="ID" style="visibility: false;" />
+            <TextField fx:id="Id_TextField_Name" layoutX="33.0" layoutY="142.0" onKeyPressed="#OnKeyPressedName" prefHeight="30.0" prefWidth="236.0" promptText="Name" style="visibility: false;" />
             <Button fx:id="Id_Button_New" layoutX="33.0" layoutY="231.0" mnemonicParsing="false" onAction="#OnAction_New" prefHeight="50.0" prefWidth="75.0" style="-fx-background-color: #2471a3; -fx-background-radius: 5;" text="New" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="15.0" />

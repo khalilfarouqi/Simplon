@@ -32,6 +32,7 @@ public class LoginController {
     private Message_Box Msg_Box = new Message_Box();
     private Form Ope_Form = new Form();
 
+    public static String Name;
 
     // Event Listener on TextField[#TextField_UserName].onKeyPressed
     @FXML
@@ -48,6 +49,8 @@ public class LoginController {
 
             TextField_UserName.setText("");
             PassWordField_Password.setText("");
+
+            Name = user.getFirst_Name() + " " + user.getLast_Name();
 
             if(user.getUser_Name() != null) Ope_Form.Open_Form("Home");
             else {

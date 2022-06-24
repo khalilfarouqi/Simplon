@@ -71,6 +71,8 @@ public class DAO_Users implements DAO<Users>{
             ResultSet ResSet = stat.executeQuery(sql);
 
             while (ResSet.next()) {
+                users.setFirst_Name(ResSet.getString("First_Name"));
+                users.setLast_Name(ResSet.getString("Last_Name"));
                 users.setUser_Name(ResSet.getString("user_name"));
                 users.setUser_PassWord(ResSet.getString("user_password"));
             }
