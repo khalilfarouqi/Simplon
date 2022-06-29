@@ -35,11 +35,11 @@ public class CategoryServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter print = response.getWriter();
-		request.getRequestDispatcher("Task.jsp");
-		String name = request.getParameter("id");
-		String namee = request.getParameter("CategoryName");
-		print.println(name + namee);
+//		PrintWriter print = response.getWriter();
+		request.getRequestDispatcher("Task.jsp").forward(request, response);
+//		String name = request.getParameter("id");
+//		String namee = request.getParameter("CategoryName");
+//		print.println(name + namee);
 		doGet(request, response);
 	}
 
