@@ -9,7 +9,7 @@
 	<body>
 		<!-- Body of Form starts -->
   		<div class="container">
-    		<form method="post" autocomplete="on" action='CategoryServlet'>
+    		<form method="post" autocomplete="on" action='Task_Servlet'>
       		<!--ID-->
 		    <div class="box">
 		    	<label for="firstName" class="fl fontLabel"> ID: </label>
@@ -49,27 +49,26 @@
       		<!--Status-->
       		<div class="box">
 		        <label for="secondName" class="fl fontLabel"> Status: </label>
-		        <div class="fl iconBox"><i class="fa-solid fa-list-check" aria-hidden="true"></i></div>
+		        <div class="fl iconBox"><i class="fa fa-list" aria-hidden="true"></i></div>
 		        <div class="fr">
-		        	<select name="cStatusars" class="textBox">
-					  <option value="Terminer">Terminer</option>
-					  <option value="PasEncore">Pas Encore</option>
-					  <option value="Encore">Encour</option>
+		        	<select name="Status" class="textBox">
+					  <option value="Terminer">Pas encore</option>
+					  <option value="PasEncore">En cours</option>
+					  <option value="Encore">Terminée</option>
 					</select>
 		        </div>
 		        
 		        <div class="clr"></div>
 	      </div>
 	      <!--Status-->
-	      <!--description-->
       		<!--DeadLine-->
 		    <div class="box">
 		    	<label for="firstName" class="fl fontLabel"> DeadLine : </label>
 		        <div class="new iconBox">
-		        	<i class="fa fa-user" aria-hidden="true"></i>
+		        	<i class="fa fa-calendar" aria-hidden="true"></i>
 		        </div>
 		        <div class="fr">
-		        	<input type="date" name="id" placeholder="Description" class="textBox" autofocus="on" required>
+		        	<input type="date" name="DeadLine" placeholder="DeadLine" class="textBox" autofocus="on" required>
 		        </div>
 		        <div class="clr"></div>
 			</div>
@@ -78,9 +77,9 @@
       		<!--category name-->
       		<div class="box">
 		        <label for="secondName" class="fl fontLabel"> Category : </label>
-		        <div class="fl iconBox"><i class="fa fa-calendar-times" aria-hidden="true"></i></div>
+		        <div class="fl iconBox"><i class="fa fa-id-card" aria-hidden="true"></i></div>
 		        <div class="fr">
-		        	<input type="text" required name="CategoryName" placeholder="Category Name" class="textBox">
+		        	<input type="text" required name="Categoryid" placeholder="Category ID" class="textBox">
 		        </div>
 		        <div class="clr"></div>
 	      </div>

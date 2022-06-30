@@ -9,7 +9,7 @@
 	<body>
 		<!-- Body of Form starts -->
   		<div class="container">
-    		<form method="post" autocomplete="on" action='CategoryServlet'>
+    		<form method="post" autocomplete="on" action='Category_Sevlet'>
       		<!--ID-->
 		    <div class="box">
 		    	<label for="firstName" class="fl fontLabel"> Category ID: </label>
