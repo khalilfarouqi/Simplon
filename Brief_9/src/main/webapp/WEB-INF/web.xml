@@ -39,4 +39,24 @@
     <servlet-name>Users_Servlet</servlet-name>
     <url-pattern>/Users_Servlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login_Servlet</display-name>
+    <servlet-name>Login_Servlet</servlet-name>
+    <servlet-class>servlet.Login_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login_Servlet</servlet-name>
+    <url-pattern>/Login_Servlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Home_Servlet</display-name>
+    <servlet-name>Home_Servlet</servlet-name>
+    <servlet-class>servlet.Home_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home_Servlet</servlet-name>
+    <url-pattern>/Home_Servlet</url-pattern>
+  </servlet-mapping>
 </web-app>

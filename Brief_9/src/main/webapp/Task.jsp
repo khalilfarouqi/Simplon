@@ -84,6 +84,12 @@
 		        <div class="clr"></div>
 	      </div>
 	      <!--category name-->
+	      
+	      <!-- Go Categoty -->
+	      <div style="padding-top: 15px; font-family: verdana;">
+	      	<a href = "Category.jsp" style="color: white;">Add new Category</a>
+	      </div>
+	      <!-- Go Categoty -->
 
 	      <!---Submit Button------>
 	      <div class="box" style="background: #2d3e3f">

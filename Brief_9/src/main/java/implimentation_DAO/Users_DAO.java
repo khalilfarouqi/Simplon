@@ -51,7 +51,7 @@ public class Users_DAO implements IDAO<Users> {
             ResultSet ResSet = stat.executeQuery(sql);
 
             while (ResSet.next()) {
-                users.setID_User(ResSet.getInt("max") + 1);
+                users.setID_User(ResSet.getInt("max"));
             }
 
             ResSet.close();
@@ -70,14 +70,14 @@ public class Users_DAO implements IDAO<Users> {
 
             while (ResSet.next()) {
                 users.setFirst_Name(ResSet.getString("First_Name"));
-                users.setLast_Name(ResSet.getString("Last_Name"));
+                users.setLast_Name(ResSet.getString("Late_Name"));
                 users.setUser_Name(ResSet.getString("user_name"));
                 users.setUser_PassWord(ResSet.getString("user_password"));
             }
 
             ResSet.close();
         } catch (Exception e) {
-        	System.out.println(e.getMessage());
+        	System.out.println(e.getMessage() + " tsest");
         }
     }
 
