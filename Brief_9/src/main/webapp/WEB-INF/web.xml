@@ -59,4 +59,14 @@
     <servlet-name>Home_Servlet</servlet-name>
     <url-pattern>/Home_Servlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SignIn_Servlet</display-name>
+    <servlet-name>SignIn_Servlet</servlet-name>
+    <servlet-class>servlet.SignIn_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignIn_Servlet</servlet-name>
+    <url-pattern>/SignIn_Servlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -16,7 +16,7 @@ public class Users_DAO implements IDAO<Users> {
 
             PreparedStatement ps = Connect.connexion().prepareStatement("Insert into users values (?,?,?,?,?)");
 
-            ps.setInt(1, users.getID_User()+1);
+            ps.setInt(1, users.getID_User());
             ps.setString(2, users.getFirst_Name());
             ps.setString(3, users.getLast_Name());
             ps.setString(4, users.getUser_Name());

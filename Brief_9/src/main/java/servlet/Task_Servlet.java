@@ -32,7 +32,7 @@ public class Task_Servlet extends HttpServlet {
 			task.setTitle(request.getParameter("title"));
 			task.setDescription(request.getParameter("Description"));
 			task.setStatus(request.getParameter("Status"));
-			task.setDeadline(LocalDate.parse(request.getParameter("DeadLine")));
+			task.setDeadline(request.getParameter("DeadLine"));
 			task.setID_Category(Integer.parseInt(request.getParameter("Categoryid")));
 
 			Task_DAO DAO_task = new Task_DAO();

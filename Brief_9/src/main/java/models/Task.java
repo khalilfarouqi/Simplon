@@ -42,8 +42,8 @@ public class Task {
 	public LocalDate getDeadline() {
 		return Deadline;
 	}
-	public void setDeadline(LocalDate deadline) {
-		Deadline = deadline;
+	public void setDeadline(String deadline) {
+		Deadline = LocalDate.parse(deadline);
 	}
 	
 	public int getID_Category() {

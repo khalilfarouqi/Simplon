@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="implimentation_DAO.Task_DAO"%>
+<%@page import="models.Task"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -19,28 +22,44 @@
 				            <th>Status</th>
 				            <th>Deadline</th>
 				            <th>Id Category</th>
+				            <th>Edit</th>
 				        </tr>
 				    </thead>
 				    <tbody>
-				        <tr>
-				            <td>${Name}</td>
-				            <td>6000</td>
-				            <td>Dom</td>
-				            <td>6000</td>
-				            <td>Dom</td>
-				            <td>6000</td>
-				        </tr>
-				        <tr class="active-row">
-				            <td>Melissa</td>
-				            <td>5150</td>
-				            <td>Melissa</td>
-				            <td>5150</td>
-				            <td>Melissa</td>
-				            <td>5150</td>
-				        </tr>
-				        <!-- and so on... -->
+					    <c:forEach var="task" items="${listTask}">
+	
+							<tr>
+								<td><c:out value="${task.ID_task}" /></td>
+								<td><c:out value="${task.Title}" /></td>
+								<td><c:out value="${task.Description}" /></td>
+								<td><c:out value="${task.Status}" /></td>
+	                            <td><c:out value="${task.Deadline}" /></td>
+	                            <td><c:out value="${task.ID_Category}" /></td>
+								<td>
+									<a href="Task.jsp">Edit</a>
+									&nbsp;&nbsp;&nbsp;&nbsp; 
+									<a href="Task.jsp">Delete</a>
+								</td>
+							</tr>
+						</c:forEach>
+						<label></label>
+				    	<!--<tr class="my-class">
+						    <td th:text="${ID_Task}">ID</td>
+						    <td th:text="${Title}">Title</td>
+						    <td th:text="${Disc}">Discription</td>
+						    <td th:text="${Status}">Status</td>
+						    <td th:text="${DeadLine}">Deadline</td>
+						    <td th:text="${ID_Cate}">Id Category</td>
+						</tr>
+				         and so on... -->
 				    </tbody>
 				</table>
+				
+			    <!---Submit Button------>
+			    <div class="box" style="background: #2d3e3f">
+			    	<input type="Submit" name="Submit" class="submit" value="SUBMIT">
+				</div>
+				<!---Submit Button----->
 	    	</form>
 		</div>
 		<!--Body of Form ends--->
