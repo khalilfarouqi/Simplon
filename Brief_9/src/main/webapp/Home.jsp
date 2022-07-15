@@ -26,7 +26,7 @@
 				        </tr>
 				    </thead>
 				    <tbody>
-					    <c:forEach var="task" items="${listTask}">
+					    <!--  <c:forEach var="task" items="${listTask}">
 	
 							<tr>
 								<td><c:out value="${task.ID_task}" /></td>
@@ -41,8 +41,7 @@
 									<a href="Task.jsp">Delete</a>
 								</td>
 							</tr>
-						</c:forEach>
-						<label></label>
+						</c:forEach>-->
 				    	<!--<tr class="my-class">
 						    <td th:text="${ID_Task}">ID</td>
 						    <td th:text="${Title}">Title</td>
@@ -52,6 +51,19 @@
 						    <td th:text="${ID_Cate}">Id Category</td>
 						</tr>
 				         and so on... -->
+				         <tr class="my-class">
+				         	<td>${ID_Task}</td>
+				         	<td>${Title}</td>
+				         	<td>${Disc}</td>
+				         	<td>${Status}</td>
+				         	<td>${DeadLine}</td>
+				         	<td>${ID_Cate}</td>
+				         	<td>
+								<a href="Task.jsp">Edit</a>
+									&nbsp;&nbsp;&nbsp;&nbsp; 
+								<a href="Task.jsp">Delete</a>
+							</td>
+				         </tr>
 				    </tbody>
 				</table>
 				

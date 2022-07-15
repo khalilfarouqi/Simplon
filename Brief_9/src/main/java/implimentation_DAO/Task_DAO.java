@@ -5,13 +5,14 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.*;
 import connexion.Connect;
 import dao.*;
-import models.*;
 
 public class Task_DAO  implements IDAO<Task>{
 	
 	String sql;
+	public static List<Task> list = new ArrayList();
 
 	@Override
 	public void Ajouter(Task task) {
@@ -102,6 +103,8 @@ public class Task_DAO  implements IDAO<Task>{
             	task.setID_task(ResSet.getInt("id_category"));
             }
             
+            
+            
             tasks.add(task);
             
             ResSet.close();
@@ -109,6 +112,33 @@ public class Task_DAO  implements IDAO<Task>{
 			System.out.println(e.getMessage());
 		}
 		return tasks;
+	}
+
+	public void listerTest(Task task) {
+//		List<Task> list = new ArrayList();
+
+		
+		try {
+			sql = "Select * from task";
+
+            Statement stat = (Statement) Connect.connexion().createStatement();
+            ResultSet ResSet = stat.executeQuery(sql);
+            
+            while (ResSet.next()) {
+            	task = new Task();
+            	task.setID_task(ResSet.getInt("id_task"));
+            	task.setTitle(ResSet.getString("title"));
+            	task.setDescription(ResSet.getString("description"));
+            	task.setStatus(ResSet.getString("status"));
+            	task.setDeadline(ResSet.getString("deadline"));
+            	task.setID_task(ResSet.getInt("ID_Category"));
+            	
+            	list.add(task);
+            }
+            ResSet.close();
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 

@@ -22,16 +22,6 @@ public class Home_Servlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		Task task = new Task();
-//		Task_DAO task_DAO = new Task_DAO();
-//		task_DAO.afficher(task);
-//		System.out.println(task.toString());
-//		request.setAttribute("ID_Task", task.getID_task());
-//		request.setAttribute("Title", task.getTitle());
-//		request.setAttribute("Disc", task.getDescription());
-//		request.setAttribute("Status", task.getStatus());
-//		request.setAttribute("DeadLine", task.getDeadline());
-//		request.setAttribute("ID_Cate", task.getID_Category());
 		
 	}
 
@@ -40,9 +30,16 @@ public class Home_Servlet extends HttpServlet {
 		Task task = new Task();
 		Task_DAO task_DAO = new Task_DAO();
 		task_DAO.afficher(task);
-		
+
 		List<Task> listTask = task_DAO.afficher(task);
-		System.out.println(listTask);
+		System.out.println(task_DAO.list.toString());
+
+		request.setAttribute("ID_Task", task.getID_task());
+		request.setAttribute("Title", task.getTitle());
+		request.setAttribute("Disc", task.getDescription());
+		request.setAttribute("Status", task.getStatus());
+		request.setAttribute("DeadLine", task.getDeadline());
+		request.setAttribute("ID_Cate", task.getID_Category());
 		
 		request.setAttribute("listTask", listTask);
 		
