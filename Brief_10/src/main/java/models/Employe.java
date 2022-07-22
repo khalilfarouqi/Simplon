@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import jakarta.persistence.Table;
+
 @Entity
+@Table
 public class Employe {
 	
 	@Id
@@ -13,7 +16,7 @@ public class Employe {
 	private long ID;
 	private String FirstName;
 	private String LastName;
-	private int Salaire;
+	private Double Salaire;
 	private String Role;
 	private String TypeContrat;
 	 
@@ -38,10 +41,10 @@ public class Employe {
 		LastName = lastName;
 	}
 	
-	public int getSalaire() {
+	public Double getSalaire() {
 		return Salaire;
 	}
-	public void setSalaire(int salaire) {
+	public void setSalaire(Double salaire) {
 		Salaire = salaire;
 	}
 	
@@ -60,7 +63,7 @@ public class Employe {
 	}
 	
 	public Employe() {}
-	public Employe(long iD, String firstName, String lastName, int salaire, String role, String typeContrat) {
+	public Employe(long iD, String firstName, String lastName, Double salaire, String role, String typeContrat) {
 		super();
 		ID = iD;
 		FirstName = firstName;
