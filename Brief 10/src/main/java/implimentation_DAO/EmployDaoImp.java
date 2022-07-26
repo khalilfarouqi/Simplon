@@ -1,29 +1,45 @@
-package dao;
+package implimentation_DAO;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import implimentation_DAO.IDAO;
-import model.Employe;
+import dao.*;
+import model.*;
+import util.*;
 
 public class EmployDaoImp  implements IDAO<Employe>{
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
+	//@SuppressWarnings("unchecked")
 	@Override
 	public List<Employe> listElemts() {
 
-	        Session session = sessionFactory.openSession();		
-	        session.beginTransaction();
-	        Query<Employe> query = (Query<Employe>) session.createQuery("Select * from Employe");
-	        List<Employe> employe = query.list();
-	        session.getTransaction().commit();
-	        session.close();
-		    return employe;
-		
+//		  Transaction transaction = null;
+//          List <Employe> listOfEmployee = null;
+//          
+//          Session session = HibernateUtil.getSessionFactory().openSession();
+//          try {
+//              // start a transaction
+//              transaction = session.beginTransaction();
+//              // get an employee object
+//
+//              listOfEmployee = (session.createQuery("from employe")).getResultList();
+//              
+//              System.out.println(listOfEmployee);
+//              
+//              // commit transaction
+//              transaction.commit();
+//          } catch (Exception e) {
+//              if (transaction != null) {
+//                  transaction.rollback();
+//              }
+//              e.printStackTrace();
+//          }
+//          return listOfEmployee;
+		return null;
 	}
 
 	@Override
