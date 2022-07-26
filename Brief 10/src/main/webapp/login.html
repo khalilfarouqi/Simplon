@@ -1,4 +1,3 @@
-<!--<form  action="LoginController" th:action="@{/LoginController}" th:object="${loginForm}" method="get">-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,7 +14,7 @@
 				<img src="IMG/bg.svg">
 			</div>
 			<div class="login-content">
-				<form action="index.html" action='LoginServlet'>
+				<form action="LoginServlet" method="post">
 					<img src="IMG/avatar.svg">
 					<h2 class="title">Welcome</h2>
 	           		<div class="input-div one">
@@ -24,7 +23,7 @@
 	           		   </div>
 	           		   <div class="div">
 	           		   		<h5>Username</h5>
-	           		   		<input type="text" class="input">
+	           		   		<input type="text" class="input" name="User_Name">
 	           		   </div>
 	           		</div>
 	           		<div class="input-div pass">
@@ -33,7 +32,7 @@
 	           		   </div>
 	           		   <div class="div">
 	           		    	<h5>Password</h5>
-	           		    	<input type="password" class="input">
+	           		    	<input type="password" class="input" name="User_PassWord">
 	            	   </div>
 	            	</div>
 	            	<a href="#">Forgot Password?</a>

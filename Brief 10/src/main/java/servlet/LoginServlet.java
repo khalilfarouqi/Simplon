@@ -2,13 +2,15 @@ package servlet;
 
 import java.io.IOException;
 
+import org.hibernate.Session;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import implimentation_DAO.*;
-import model.*;
+import util.HibernateUtil;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,22 +25,26 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		doGet(request, response);
-		try {
-			Admin admin = new Admin();
-			AdminDaoImp adminDaoImp = new AdminDaoImp();
-			
-//			adminDaoImp.getElemts();
-//			
-//			adminDaoImp.test_Connection(users, request.getParameter("User_Name"), request.getParameter("User_PassWord"));
-//			
-//			if (users.getFirst_Name() != null) request.getRequestDispatcher("Task.jsp").forward(request, response);
-//			else request.getRequestDispatcher("Login.jsp").forward(request, response);
-			
-		}catch(Exception e) {
-			System.out.println(e.getMessage()+" lafan");
+		
+		System.out.println("Project started ...");
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+	    session.beginTransaction();
+
+		AdminDaoImp adminDaoImp = new AdminDaoImp();
+		
+		System.out.println(request.getParameter("User_Name"));
+		System.out.println(request.getParameter("User_PassWord"));
+
+		if (adminDaoImp.listElemtsAdmin(request.getParameter("User_Name"), Integer.parseInt(request.getParameter("User_PassWord"))) == true) {
+			response.sendRedirect("EmployeList.html");
+		}else {
+			response.sendRedirect("login.html");
 		}
+
+	    HibernateUtil.getSessionFactory().close();
+	    
+		response.sendRedirect("EmployeList.html");
 	}
 
 }
