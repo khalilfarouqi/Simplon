@@ -24,7 +24,7 @@ public class Main {
       
 //       -----------------------------Add employe work---------------------------------------
       
-//         em.addElemts(new Employe("MED", "Error", 5000, "Professeur", "CDI"));
+//       em.addElemts(new Employe("MED", "Error", 5000, "Professeur", "CDI"));
 //       em.addElemts(new Employe("KHALIL", "one", 7000, "Professeur", "CDI"));
 //       em.addElemts(new Employe("NAWAN", "two", 9000, "Professeur", "CDI"));
 //       em.addElemts(new Employe("ANASS", "tree", 8000, "Professeur", "CDI"));

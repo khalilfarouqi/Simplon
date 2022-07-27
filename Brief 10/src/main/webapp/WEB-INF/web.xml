@@ -24,4 +24,34 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEmpServlet</display-name>
+    <servlet-name>AddEmpServlet</servlet-name>
+    <servlet-class>servlet.AddEmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEmpServlet</servlet-name>
+    <url-pattern>/AddEmpServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HomeServlet</display-name>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>servlet.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/HomeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateServler</display-name>
+    <servlet-name>UpdateServler</servlet-name>
+    <servlet-class>servlet.UpdateServler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateServler</servlet-name>
+    <url-pattern>/UpdateServler</url-pattern>
+  </servlet-mapping>
 </web-app>

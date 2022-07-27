@@ -28,43 +28,38 @@
     </plugins>
   </build>
   <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+  <dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>6.0.0</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>5.4.10.Final</version>
+</dependency>
 <dependency>
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
     <version>42.3.6</version>
 </dependency>
 <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>4.3.5.Final</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
+<dependency>
+    <groupId>org.glassfish.web</groupId>
+    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+    <version>2.0.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
 <dependency>
     <groupId>org.thymeleaf</groupId>
     <artifactId>thymeleaf</artifactId>
-    <version>3.1.0.M2</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core-jakarta -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core-jakarta</artifactId>
-    <version>5.6.10.Final</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-annotations -->
-<dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-annotations</artifactId>
-    <version>3.5.6-Final</version>
-</dependency>
-
-<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
-<dependency>
-    <groupId>org.hibernate.validator</groupId>
-    <artifactId>hibernate-validator</artifactId>
-    <version>6.2.0.Final</version>
+    <version>3.0.15.RELEASE</version>
 </dependency>
 
   </dependencies>

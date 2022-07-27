@@ -1,23 +1,39 @@
 <!DOCTYPE HTML>
 <html  xmlns:th="http://www.thymeleaf.org">
-	<head>
-	    <meta charset="UTF-8"/>
-	    <title>Update Employe</title>
-	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-	    
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-		    <div class="container">
-		        <a class="navbar-brand">Gestion Des Employe</a>
-		        <button class="navbar-toggler" type="button" data-toggle="collapse"></button>         
-		        
-		    </div>
-		</nav>
-		<h3>Update Employe</h3>
-		<a href="EmployeList.html"><button type="button" class="btn btn-outline-info btn-right">Black</button></a>
-	
-	
-	
-	</body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Update Employe</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Management System</h1>
+        <hr>
+        <h2>Update Employee</h2>
+
+        <form action="UpdateServler" th:action="@{/UpdateServler}" th:object="${employe}" method="POST">
+
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}"  placeholder="Enter ID" name = "id"/>
+
+            <input type="text" th:field="*{prenom}" class="form-control mb-4 col-4" placeholder="Enter Prenom" name = "prenom">
+
+            <input type="text" th:field="*{nom}" class="form-control mb-4 col-4" placeholder="Enter Nom" name = "nom">
+
+            <input type="text" th:field="*{salaire}" class="form-control mb-4 col-4" placeholder="Enter Salaire" name = "salaire">
+            
+            <input type="text" th:field="*{post}" class="form-control mb-4 col-4" placeholder="Enter Post" name = "post">
+
+            <input type="text" th:field="*{typeCont}" class="form-control mb-4 col-4"  placeholder="Enter Type de Contrat" name = "typeCont">
+
+            <button type="submit" class="btn btn-info col-2"> Update Employee</button>
+        </form>
+
+        <hr>
+
+      <a href="EmployeList.html" type="button" class="btn btn-outline-info btn-right"><i class="bi bi-backspace-fill"></i> Back</a>
+
+    </div>
+</body>
 </html>
