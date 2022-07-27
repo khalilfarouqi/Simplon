@@ -34,7 +34,9 @@
 	
 	<div class = "container my-2">
 	<a th:href="@{/showNewEmployeeForm}" href = "Add.html" class="btn btn-primary btn-sm mb-3"> Add Employee </a>
-	  <div class = "row">
+	
+	<form action="HomeServlet">
+		<div class = "row">
 	    <table class = "table table-bordered table-striped table-hover">
 	     <thead>
 	      <tr>
@@ -49,7 +51,7 @@
 	     </thead>
 	     <tbody>
 	     
-	     <tr th:each="Employe : ${Employe}">
+	     <tr th:each="Employe : ${listEmp}">
 		      <th scope="row">1</th>
 		      <td th:text="${Employe.nom}"></td>
 		      <td th:text="${Employee.prenom}"></td>
@@ -64,6 +66,8 @@
 	    </tbody>
 	    </table>
 	  </div>
+	</form>
+	  
 	  </div>
 	
 	</body>

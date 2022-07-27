@@ -13,33 +13,29 @@ import util.*;
 public class EmployDaoImp  implements IDAO<Employe>{
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-	//@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employe> listElemts() {
 
-//		  Transaction transaction = null;
-//          List <Employe> listOfEmployee = null;
-//          
-//          Session session = HibernateUtil.getSessionFactory().openSession();
-//          try {
-//              // start a transaction
-//              transaction = session.beginTransaction();
-//              // get an employee object
-//
-//              listOfEmployee = (session.createQuery("from employe")).getResultList();
-//              
-//              System.out.println(listOfEmployee);
-//              
-//              // commit transaction
-//              transaction.commit();
-//          } catch (Exception e) {
-//              if (transaction != null) {
-//                  transaction.rollback();
-//              }
-//              e.printStackTrace();
-//          }
-//          return listOfEmployee;
-		return null;
+		Transaction transaction = null;
+        List <Employe> listOfUser = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        	
+            // start a transaction
+            transaction = session.beginTransaction();
+
+            listOfUser = session.createQuery("from employe").getResultList();
+            // commit transaction
+            transaction.commit();
+            
+        } catch (Exception e) {
+            if (transaction != null) {
+//                transaction.rollback();
+            	System.out.println(e.getMessage());
+            }
+            e.printStackTrace();
+        }
+        return listOfUser;
 	}
 
 	@Override

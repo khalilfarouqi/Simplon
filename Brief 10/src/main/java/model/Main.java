@@ -1,6 +1,8 @@
 package model;
 
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import implimentation_DAO.AdminDaoImp;
@@ -19,6 +21,8 @@ public class Main {
       
        EmployDaoImp em = new EmployDaoImp();
        AdminDaoImp ad = new AdminDaoImp();
+       List<Employe> listEmp = em.listElemts();
+       System.out.println(listEmp);
        
 //       ___________________________________________EMPLOYE___________________________________________
       
@@ -45,6 +49,9 @@ public class Main {
 //       ------------------------------lister tous employe no work------------------------------------
 
 //       System.out.println(em.listElemts());
+//     ------------------------------lister tous employe no work------------------------------------
+
+//     System.out.println(em.getElemts(1));
        
 //       ______________________________________________________________________________________________
        
@@ -70,12 +77,12 @@ public class Main {
 //     ------------------------------lister tous Admin no work------------------------------------
 
 //       List<Admin> l = ad.listElemts();
-//       System.out.println(l.toString());
+//       System.out.println(ad.listElemts());
        
 //       ______________________________________________________________________________________________
        
        
-       System.out.println(ad.listElemtsAdmin("khalil",0));
+//       System.out.println(ad.listElemtsAdmin("khalil",0));
       
       HibernateUtil.getSessionFactory().close();
    
