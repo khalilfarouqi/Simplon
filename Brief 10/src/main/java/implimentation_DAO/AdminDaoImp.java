@@ -33,28 +33,25 @@ public class AdminDaoImp implements IDAO<Admin> {
 	}
 	
 	
-	public boolean listElemtsAdmin(String user,int password) {
+	public boolean listElemtsAdmin(String username,int password) {
 		
 		Transaction transaction = null;
         Admin admin = null;
-        
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        
-        try {
-            // start a transaction
-            transaction = session.beginTransaction();
-            // get an user object
-            admin = (Admin) session.createQuery("FROM Admin A WHERE A.username = :userName").setParameter("userName", user)
-                    .uniqueResult();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 
-            if(admin != null && admin.getPassword() == password) return true;
-            
-            // commit transaction
+            transaction = session.beginTransaction();
+
+            admin = (Admin) session.createQuery("FROM admin U WHERE U.username = :username").setParameter("username", username)
+                .uniqueResult();
+
+            if (admin != null && admin.getPassword() == password) return true;
+
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
+        	System.out.println(e.getMessage());
+        	
+            //if (transaction != null) transaction.rollback();
+            
             e.printStackTrace();
         }
         return false;
@@ -111,6 +108,13 @@ public class AdminDaoImp implements IDAO<Admin> {
         session.getTransaction().commit();
         session.close();
         return (Admin)a;
+	}
+
+
+	@Override
+	public List<Employe> getALLEmplye() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

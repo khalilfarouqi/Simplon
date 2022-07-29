@@ -13,30 +13,7 @@ import util.*;
 public class EmployDaoImp  implements IDAO<Employe>{
 	SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Employe> listElemts() {
-
-		Transaction transaction = null;
-        List <Employe> listOfUser = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-        	
-            // start a transaction
-            transaction = session.beginTransaction();
-
-            listOfUser = session.createQuery("from employe").getResultList();
-            // commit transaction
-            transaction.commit();
-            
-        } catch (Exception e) {
-            if (transaction != null) {
-//                transaction.rollback();
-            	System.out.println(e.getMessage());
-            }
-            e.printStackTrace();
-        }
-        return listOfUser;
-	}
+	
 
 	@Override
 	public void addElemts(Employe e) {                                     
@@ -94,4 +71,42 @@ public class EmployDaoImp  implements IDAO<Employe>{
 		     return (Employe)e;
 	}
 
-}
+	@Override
+	public List<Employe> listElemts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	/**
+     * Get all Users
+     * @return
+     */
+	
+	 @SuppressWarnings("unchecked")
+	 @Override
+	public List<Employe> getALLEmplye() {
+		
+	        Transaction transaction = null;
+	        List < Employe > listOfEmployee= null;
+	       
+	        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	        	
+	            // start a transaction
+	            transaction = session.beginTransaction();
+	            // get an employee object
+	            
+	            listOfEmployee = session.createQuery("from Employe").getResultList();
+	            System.out.println("JJHJKH");
+                
+	            // commit transaction
+	            transaction.commit();
+	        } catch (Exception e) {
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
+	        return listOfEmployee;
+	    }
+	}
+
+

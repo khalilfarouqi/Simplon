@@ -1,40 +1,50 @@
 package util;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import java.util.Properties;
+
+import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import model.Employe;
+
 public class HibernateUtil {
+	 private static SessionFactory sessionFactory;
 
-	    private static SessionFactory sessionFactory;
-	    private static ServiceRegistry serviceRegistry;
-	
-	    static {
-	    	
-	        try {
-	        	
-	            Configuration configuration = new Configuration().configure();
-	            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-	            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-	        }
-	        
-	        catch(HibernateException exception) {
-	            System.out.println("Problem creating session factory!");
-	        }   
-	    }
+	 public static SessionFactory getSessionFactory() {
+	  if (sessionFactory == null) {
+	   try {
+	    Configuration configuration = new Configuration();
 
-	    public static SessionFactory getSessionFactory() {
-	        return sessionFactory;
-	    }
-	    
-	    public static Session getSession() {
-	    	Session session = null;
-	    	if (sessionFactory != null) {
-	    		session = sessionFactory.openSession();
-	    	}
-	    	return session;
-	    }
+	    // Hibernate settings equivalent to hibernate.cfg.xml's properties
+	    Properties settings = new Properties();
+	    settings.put(Environment.DRIVER, "org.postgresql.Driver");
+	    settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/Brief10");
+	    settings.put(Environment.USER, "postgres");
+	    settings.put(Environment.PASS, "khalil");
+	    settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
+
+	    settings.put(Environment.SHOW_SQL, "true");
+
+	    settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+
+//	    settings.put(Environment.HBM2DDL_AUTO, "create-drop");
+
+	    configuration.setProperties(settings);
+	    configuration.addAnnotatedClass(Employe.class);
+
+	    ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+	      .applySettings(configuration.getProperties()).build();
+	    System.out.println("Hibernate Java Config serviceRegistry created");
+	    sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+	    return sessionFactory;
+
+	   } catch (Exception e) {
+	    e.printStackTrace();
+	   }
+	  }
+	  return sessionFactory;
+	 }
 }

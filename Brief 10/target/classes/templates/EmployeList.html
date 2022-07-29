@@ -53,11 +53,11 @@
 	     
 	     <tr th:each="Employe : ${listEmp}">
 		      <th scope="row">1</th>
-		      <td th:text="${Employe.nom}"></td>
-		      <td th:text="${Employee.prenom}"></td>
-		      <td th:text="${Employee.salaire}"></td>
-		      <td th:text="${Employee.post}"></td>
-		      <td th:text="${Employee.typeCont}"></td>
+		      <td th:text="${Employe.getNom()}"></td>
+		      <td th:text="${Employee.getPrenom()}"></td>
+		      <td th:text="${Employee.getSalaire()}"></td>
+		      <td th:text="${Employee.getPost()}"></td>
+		      <td th:text="${Employee.getTypeCont()}"></td>
 		       <td>  <a th:href="@{/showFormForUpdate/{id}(id=${employe.id})}" href = "update.html" class="btn btn-primary">Update</a>
 		        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 		            <a th:href="@{/deleteEmployee/{id}(id=${employe.id})}" class="btn btn-danger">Delete</a>

@@ -10,23 +10,23 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="employe")
 public class Employe implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID")
+	@Column(name="id")
 	private long id;
-	@Column(name="NOM")
+	@Column(name="nom")
 	private String nom;
-	@Column(name="PRENOM")
+	@Column(name="prenom")
 	private String prenom;
-	@Column(name="SALAIRE")
+	@Column(name="salaire")
 	private double salaire;
 	@Column(name="POST")
 	private String post;
-	@Column(name="TYPECONT")
+	@Column(name="typecont")
 	private String typeCont;
 	
 	

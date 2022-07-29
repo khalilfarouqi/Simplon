@@ -35,16 +35,16 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println(request.getParameter("User_Name"));
 		System.out.println(request.getParameter("User_PassWord"));
-
+		System.out.println(adminDaoImp.listElemtsAdmin(request.getParameter("User_Name"), Integer.parseInt(request.getParameter("User_PassWord"))));
+		
 		if (adminDaoImp.listElemtsAdmin(request.getParameter("User_Name"), Integer.parseInt(request.getParameter("User_PassWord"))) == true) {
-			response.sendRedirect("EmployeList.html");
+			response.sendRedirect("Home.jsp");
 		}else {
 			response.sendRedirect("login.html");
 		}
 
 	    HibernateUtil.getSessionFactory().close();
-	    
-		response.sendRedirect("EmployeList.html");
+
 	}
 
 }

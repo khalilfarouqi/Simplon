@@ -11,6 +11,7 @@ public interface IDAO <T>{
 	public void addElemts(T t);
 	public void updateElemts(T t);
 	public void deleteElemts(long id);
+	List<Employe> getALLEmplye();
 	
 
 }
