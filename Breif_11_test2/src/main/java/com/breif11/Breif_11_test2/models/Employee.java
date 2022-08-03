@@ -1,4 +1,4 @@
-package com.breif11.models;
+package com.breif11.Breif_11_test2.models;
 
 import javax.persistence.*;
 
