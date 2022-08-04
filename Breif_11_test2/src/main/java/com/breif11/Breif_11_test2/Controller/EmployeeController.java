@@ -1,4 +1,4 @@
-package com.breif11.Breif_11_test2.Controller;
+	package com.breif11.Breif_11_test2.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.breif11.Breif_11_test2.dao.EmployeeRepository;
-import com.breif11.Breif_11_test2.models.Employee;
+import com.breif11.Breif_11_test2.entity.Employee;
 
 @Controller
 public class EmployeeController {
@@ -16,7 +16,7 @@ public class EmployeeController {
 	
 	@GetMapping({"/list", "/"})
 	public ModelAndView getAllEmployees() {
-		ModelAndView mav = new ModelAndView("List_Employees");
+		ModelAndView mav = new ModelAndView("Login");
 		mav.addObject("employees", eRepo.findAll());
 		return mav;
 	}
