@@ -1,12 +1,16 @@
 package dao;
 
-public interface IDAO <T>{
+import models.Admin;
+
+public interface IDAO {
+
+	public void ajouter(Admin admin);
 	
-	public void supprimer(T t);
+	public void supprimer(Admin admin);
 	
-	public void modifier(T t);
+	public void modifier(Admin admin);
 	
-	public void lister_Tous(T t);
+	public void lister_Tous(Admin admin);
 	
-	public void lister_One(T t);
+	public void lister_One(Admin admin);
 }
