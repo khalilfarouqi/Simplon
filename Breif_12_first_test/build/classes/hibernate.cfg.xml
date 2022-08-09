@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+		
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">khalil</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Brief_12</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name ="hibernate.current_session _context_class">thread</property>
+        
+        <mapping class="models.Employe"/> 
+        <mapping class="models.Administrateur"/> 
+    </session-factory>
+</hibernate-configuration>
