@@ -19,7 +19,6 @@ public class Admin implements Serializable {
 	@Column(name="PASSWORD")
 	private String password;
 	
-	
 	public long getId() {
 		return id;
 	}

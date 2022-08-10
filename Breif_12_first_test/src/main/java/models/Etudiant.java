@@ -1,6 +1,9 @@
 package models;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -19,6 +22,13 @@ public class Etudiant implements Serializable {
 	private String nom;
 	@Column(name="Prenom")
 	private String prenom;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "cours_etudiant", 
+			  joinColumns = @JoinColumn(name = "etudiant_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "cours_id"))
+    private List<Cours> cours;
 	
 	
 	public long getId() {

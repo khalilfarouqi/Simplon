@@ -2,6 +2,9 @@ package models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -19,6 +22,25 @@ public class Cours implements Serializable {
 	private LocalDate dateCours;
 	@Column(name="Descripton")
 	private String descripton;
+	
+	@OneToOne
+	private Professeurs prof;
+	
+	@ManyToMany
+	@JoinTable(
+			  name = "cours_etudiant", 
+			  joinColumns = @JoinColumn(name = "etudiant_id"), 
+			  inverseJoinColumns = @JoinColumn(name = "cours_id"))
+    private List<Etudiant> etudianrt;
+	
+
+	public Professeurs getProf() {
+		return prof;
+	}
+
+	public void setProf(Professeurs prof) {
+		this.prof = prof;
+	}
 
 	public long getId() {
 		return id;
@@ -59,10 +81,19 @@ public class Cours implements Serializable {
 		this.descripton = descripton;
 	}
 
+	public Cours(long id, LocalDate dateCours, String descripton, Professeurs prof) {
+		super();
+		this.id = id;
+		this.dateCours = dateCours;
+		this.descripton = descripton;
+		this.prof = prof;
+	}
+
 	@Override
 	public String toString() {
-		return "Cours [id=" + id + ", dateCours=" + dateCours + ", descripton=" + descripton + "]";
+		return "Cours [id=" + id + ", dateCours=" + dateCours + ", descripton=" + descripton + ", prof=" + prof + "]";
 	}
+	
 	
 	
 }
