@@ -2,9 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -74,10 +72,10 @@ public class Cours implements Serializable {
 		super();
 	}
 
-	public Cours(long id, LocalDate dateCours, String descripton) {
+	public Cours(long id, String dateCours, String descripton) {
 		super();
 		this.id = id;
-		this.dateCours = dateCours;
+		this.dateCours = LocalDate.parse(dateCours);
 		this.descripton = descripton;
 	}
 
