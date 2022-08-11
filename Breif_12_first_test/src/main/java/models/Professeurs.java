@@ -49,6 +49,12 @@ public class Professeurs implements Serializable {
 	
 	
 	public Professeurs() {}
+	
+	public Professeurs(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	}
 	public Professeurs(long id, String nom, String prenom) {
 		super();
 		this.id = id;

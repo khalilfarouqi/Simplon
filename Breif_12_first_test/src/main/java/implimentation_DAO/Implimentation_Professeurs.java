@@ -1,12 +1,13 @@
 package implimentation_DAO;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import java.util.List;
+
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
+import connexion.HibernateUtil;
 import dao.IDAO;
-import models.Admin;
-import models.Professeurs;
+import models.*;
 
 public class Implimentation_Professeurs implements IDAO<Professeurs> {
 
@@ -14,53 +15,94 @@ public class Implimentation_Professeurs implements IDAO<Professeurs> {
 	
 	@Override
 	public void ajouter(Professeurs prof) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();		
-		session.beginTransaction();
-		session.save(prof);
-		session.getTransaction().commit();
-		session.close();
+		Transaction transaction = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            session.save(prof);
+            transaction.commit();
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        };
 	}
 
 	@Override
-	public void supprimer(Professeurs prof) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        Professeurs user = (Professeurs) session.get(Professeurs.class, prof.getId());
-        session.delete(user);
-        session.getTransaction().commit();
-		session.close();
+	public void supprimer(long id) {
+		 Transaction transaction = null;
+		 Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	            transaction = session.beginTransaction();
+
+	            Professeurs prof = (Professeurs) session.get(Professeurs.class, id);
+	            if (prof != null) {
+	                session.delete(prof);
+	                System.out.println("Professeurs is deleted");
+	            }
+
+	            transaction.commit();
+	        } catch (Exception e) {
+            	System.out.println(e.getMessage());
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
 	public void modifier(Professeurs prof) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        session.update(prof);
-        session.getTransaction().commit();
-		session.close();
+		Transaction transaction = null;
+		 Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	        	transaction = session.beginTransaction();
+	            session.update(prof);
+	            transaction.commit();
+	        } catch (Exception e) {
+            	System.out.println(e.getMessage());
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
-	public void lister_Tous(Professeurs prof) {
-		// TODO Auto-generated method stub
+	public List<Professeurs> lister_Tous() {
+		Query query;
+		List<Professeurs> prof = null;
 		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        prof = (Professeurs) session.get(Professeurs.class, prof.getId());
-        session.getTransaction().commit();
-		session.close();
+		session.beginTransaction();
+       try {
+    	   query = (Query) session.createQuery("Select * from professeurs");
+    	   prof = query.list();
+       } catch (Exception e) {
+       	System.out.println(e.getMessage());
+           e.printStackTrace();
+       }
+       return prof;
 	}
 
 	@Override
-	public void lister_One(Professeurs prof) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        prof = (Professeurs) session.get(Professeurs.class, prof.getId());
-        session.getTransaction().commit();
-		session.close();
+	public Professeurs lister_One(long id) {
+		Transaction transaction = null;
+		Professeurs prof = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+       try {
+           transaction = session.beginTransaction();
+           prof = (Professeurs) session.get(Professeurs.class, id);
+           transaction.commit();
+       } catch (Exception e) {
+       	System.out.println(e.getMessage());
+           if (transaction != null) {
+               transaction.rollback();
+           }
+           e.printStackTrace();
+       }
+       return prof;
 	}
 
 }

@@ -1,6 +1,7 @@
 package models;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -17,7 +18,7 @@ public class Cours implements Serializable {
 	@Column(name="ID")
 	private long id;
 	@Column(name="DateCours")
-	private LocalDate dateCours;
+	private String dateCours;
 	@Column(name="Descripton")
 	private String descripton;
 	
@@ -48,11 +49,11 @@ public class Cours implements Serializable {
 		this.id = id;
 	}
 
-	public LocalDate getDateCours() {
+	public String getDateCours() {
 		return dateCours;
 	}
 
-	public void setDateCours(LocalDate dateCours) {
+	public void setDateCours(String dateCours) {
 		this.dateCours = dateCours;
 	}
 
@@ -72,14 +73,29 @@ public class Cours implements Serializable {
 		super();
 	}
 
+	public Cours(String dateCours, String descripton, Professeurs prof) {
+		super();
+		this.dateCours = dateCours;
+		this.descripton = descripton;
+		this.prof = prof;
+	}
+
+	public Cours(String dateCours, String descripton, Professeurs prof, List<Etudiant> etudianrt) {
+		super();
+		this.dateCours = dateCours;
+		this.descripton = descripton;
+		this.prof = prof;
+		this.etudianrt = etudianrt;
+	}
+
 	public Cours(long id, String dateCours, String descripton) {
 		super();
 		this.id = id;
-		this.dateCours = LocalDate.parse(dateCours);
+		this.dateCours = dateCours;
 		this.descripton = descripton;
 	}
 
-	public Cours(long id, LocalDate dateCours, String descripton, Professeurs prof) {
+	public Cours(long id, String dateCours, String descripton, Professeurs prof) {
 		super();
 		this.id = id;
 		this.dateCours = dateCours;

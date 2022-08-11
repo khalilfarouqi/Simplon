@@ -40,6 +40,12 @@ public class Admin implements Serializable {
 	
 	
 	public Admin() {}
+	
+	public Admin(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	public Admin(long id, String username, String password) {
 		super();
 		this.id = id;

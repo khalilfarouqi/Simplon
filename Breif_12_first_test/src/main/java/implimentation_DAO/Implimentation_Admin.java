@@ -1,8 +1,11 @@
 package implimentation_DAO;
 
+import java.util.List;
+
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 
+import connexion.HibernateUtil;
 import dao.IDAO;
 import models.*;
 
@@ -12,53 +15,94 @@ public class Implimentation_Admin implements IDAO <Admin> {
 	
 	@Override
 	public void ajouter(Admin admin) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();		
-		session.beginTransaction();
-		session.save(admin);
-		session.getTransaction().commit();
-		session.close();
+		Transaction transaction = null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            session.save(admin);
+            transaction.commit();
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        };
 	}
 
 	@Override
-	public void supprimer(Admin admin) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        Admin user = (Admin) session.get(Admin.class, admin.getId());
-        session.delete(user);
-        session.getTransaction().commit();
-		session.close();
+	public void supprimer(long id) {
+		 Transaction transaction = null;
+		 Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	            transaction = session.beginTransaction();
+
+	            Admin admin1 = (Admin) session.get(Admin.class, id);
+	            if (admin1 != null) {
+	                session.delete(admin1);
+	                System.out.println("admin is deleted");
+	            }
+
+	            transaction.commit();
+	        } catch (Exception e) {
+            	System.out.println(e.getMessage());
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
 	public void modifier(Admin admin) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        session.update(admin);
-        session.getTransaction().commit();
-		session.close();
+		Transaction transaction = null;
+		 Session session = HibernateUtil.getSessionFactory().openSession();
+	        try {
+	        	transaction = session.beginTransaction();
+	            session.update(admin);
+	            transaction.commit();
+	        } catch (Exception e) {
+            	System.out.println(e.getMessage());
+	            if (transaction != null) {
+	                transaction.rollback();
+	            }
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
-	public void lister_Tous(Admin admin) {
-		// TODO Auto-generated method stub
+	public List<Admin> lister_Tous() {
+		Query query;
+		List<Admin> admin = null;
 		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        admin = (Admin) session.get(Admin.class, admin.getId());
-        session.getTransaction().commit();
-		session.close();
+		session.beginTransaction();
+       try {
+    	   query = (Query) session.createQuery("from admin");
+    	   admin = query.list();
+       } catch (Exception e) {
+       	System.out.println(e.getMessage());
+           e.printStackTrace();
+       }
+       return admin;
 	}
 
 	@Override
-	public void lister_One(Admin admin) {
-		// TODO Auto-generated method stub
-		Session session = sessionFactory.openSession();	
-        session.beginTransaction();
-        admin = (Admin) session.get(Admin.class, admin.getId());
-        session.getTransaction().commit();
-		session.close();
+	public Admin lister_One(long id) {
+		Transaction transaction = null;
+		Admin admin = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+       try {
+           transaction = session.beginTransaction();
+           admin = (Admin) session.get(Admin.class, id);
+           transaction.commit();
+       } catch (Exception e) {
+       	System.out.println(e.getMessage());
+           if (transaction != null) {
+               transaction.rollback();
+           }
+           e.printStackTrace();
+       }
+       return admin;
 	}
 
 }

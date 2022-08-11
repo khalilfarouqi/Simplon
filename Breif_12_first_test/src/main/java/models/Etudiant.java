@@ -54,6 +54,18 @@ public class Etudiant implements Serializable {
 	public Etudiant() {
 		super();
 	}
+	
+	public Etudiant(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+	public Etudiant(String nom, String prenom, List<Cours> cours) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.cours = cours;
+	}
 	public Etudiant(long id, String nom, String prenom) {
 		super();
 		this.id = id;
