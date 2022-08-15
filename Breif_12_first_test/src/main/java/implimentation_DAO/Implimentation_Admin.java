@@ -104,5 +104,10 @@ public class Implimentation_Admin implements IDAO <Admin> {
        }
        return admin;
 	}
+	
+	public Boolean checke(String username, String Password) {
+		
+		return false;
+	}
 
 }
