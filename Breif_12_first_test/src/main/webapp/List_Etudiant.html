@@ -13,22 +13,21 @@
 	</head>
 	
 	<body>
-		
 		<div class="container">
 		
 			<h3>List Etudiant</h3>
 			
 			<hr/>
-			<a th:href="@{/addEmployeeForm}" class="btn btn-primary">Add Employee</a>
+			<a th:href="@{/addEmployeeForm}" href="List_Prof.html" class="btn btn-primary">List Professeur</a>
+			<a th:href="@{/addEmployeeForm}" href="List_Cour.html" class="btn btn-primary">List Cour</a>
 			<br/><br/>
 			<table class="table table-bordered table-striped" id="employeeTable">
 			
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Name</th>
-						<th>Email</th>
-						<th>Department</th>
-						<th>Actions</th>
+						<th>Prenom</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,14 +35,8 @@
 						<td th:text="${employee.name}" />
 						<td th:text="${employee.email}" />
 						<td th:text="${employee.department}" />
-						<td>
-							<a th:href="@{/showUpdateForm(employeeId=${employee.id})}" class="btn btn-info">Update</a>
-							
-							<a th:href="@{/deleteEmployee(employeeId=${employee.id})}" class="btn btn-danger ml-2">Delete</a>
-						</td>
 					</tr>
 				</tbody>
-				
 			</table>
 		</div>
 		

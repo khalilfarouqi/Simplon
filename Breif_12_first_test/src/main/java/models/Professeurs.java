@@ -21,8 +21,8 @@ public class Professeurs implements Serializable {
 	@Column(name="Prenom")
 	private String prenom;
 	
-//	@OneToMany
-//	private List<Cours> cour;
+	@OneToMany
+	private List<Cours> cour;
 	
 	
 	public long getId() {

@@ -22,7 +22,7 @@ public class Cours implements Serializable {
 	@Column(name="Descripton")
 	private String descripton;
 	
-	@OneToOne
+	@ManyToOne
 	private Professeurs prof;
 	
 	@ManyToMany

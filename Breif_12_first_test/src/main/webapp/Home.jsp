@@ -1,64 +1,64 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-	
+<!DOCTYPE html>
+<html>
 	<head>
-		<title>List Employees</title>
-		
-		<link rel="stylesheet" 
-			type="text/css" 
-			href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
-		<link rel="stylesheet" 
-			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
-			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
-			crossorigin="anonymous" />
+		<title>W3.CSS Template</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			body,h1 {font-family: "Raleway", Arial, sans-serif}
+			h1 {letter-spacing: 6px}
+			.w3-row-padding img {margin-bottom: 12px}
+		</style>
 	</head>
-	
 	<body>
 		
-		<div class="container">
+		<!-- !PAGE CONTENT! -->
+		<div class="w3-content" style="max-width:1500px">
 		
-			<h3>List Employees</h3>
-			
-			<hr/>
-			<a th:href="@{/addEmployeeForm}" class="btn btn-primary">Add Employee</a>
-			<br/><br/>
-			<table class="table table-bordered table-striped" id="employeeTable">
-			
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Department</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="employee: ${employees}">
-						<td th:text="${employee.name}" />
-						<td th:text="${employee.email}" />
-						<td th:text="${employee.department}" />
-						<td>
-							<a th:href="@{/showUpdateForm(employeeId=${employee.id})}" class="btn btn-info">Update</a>
-							
-							<a th:href="@{/deleteEmployee(employeeId=${employee.id})}" class="btn btn-danger ml-2">Delete</a>
-						</td>
-					</tr>
-				</tbody>
-				
-			</table>
+		<!-- Header -->
+		<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+		  <h1 class="w3-xlarge">PHOTOGRAPHER</h1>
+		  <h1>John Doe</h1>
+		  
+		  <div class="w3-padding-32">
+		    <div class="w3-bar w3-border">
+		      <a href="#" class="w3-bar-item w3-button">Home</a>
+		      <a href="#" class="w3-bar-item w3-button w3-light-grey">Portfolio</a>
+		      <a href="#" class="w3-bar-item w3-button">Contact</a>
+		      <a href="#" class="w3-bar-item w3-button w3-hide-small">Weddings</a>
+		    </div>
+		  </div>
+		</header>
+		
+		<!-- Photo Grid -->
+		<div class="w3-row-padding w3-grayscale" style="margin-bottom:128px">
+		  <div class="w3-half">
+		    <img src="IMG/Simplon.png" style="width:100%">
+		    <img src="IMG/digital africa.png" style="width:100%">
+		    <img src="IMG/German Cooperation.jfif" style="width:100%">
+		    <img src="IMG/Make it in africa.png" style="width:100%">
+		    <img src="IMG/T4S.jfif" style="width:100%">
+		    <img src="IMG/talent 4 startups.png" style="width:100%">
+		    <img src="IMG/Simplon icon.png" style="width:100%">
+		  </div>
+		</div>
+		  
+		<!-- End Page Content -->
 		</div>
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
-		<script>
-			$(document).ready(function() {
-				$("#employeeTable").DataTable({
-						'aoColumnDefs': [{
-        				'bSortable': false,
-        				'aTargets': [-1] /* 1st one, start by the right */
-    				}]
-				});
-			})
-		</script>
-	</body>
+		<!-- Footer -->
+		<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large"> 
+			  <i href="https://www.w3schools.com/w3css/default.asp" class="fa fa-facebook-official w3-hover-opacity"></i>
+			  <i class="fa fa-instagram w3-hover-opacity"></i>
+			  <i class="fa fa-snapchat w3-hover-opacity"></i>
+			  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+			  <i class="fa fa-twitter w3-hover-opacity"></i>
+			  <i class="fa fa-linkedin w3-hover-opacity"></i>
+			  <p>Powered by <a target="_blank" class="w3-hover-text-green">Khalil LBG</a></p>
+		</footer>
 	
+	</body>
 </html>
