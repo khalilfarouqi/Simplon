@@ -7,23 +7,21 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@DiscriminatorValue(value = "Responsable")
+@DiscriminatorValue(value = "Participant")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Responsable extends Users {
+public class Participant extends Users {
 
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "Domaine")
 	private String Domaine;
 
-	@Column(name = "Type")
-	private String Type;
-
-	@Column(name = "Etat")
-	private String Etat;
+	@Column(name = "Structure")
+	private String Structure;
 	
-	@OneToMany(mappedBy = "Responsable")
-	private List<Activite> activit;
+	@ManyToMany(mappedBy = "participantActivite", fetch = FetchType.EAGER)
+	private List<Activite> activite;
+	
 }

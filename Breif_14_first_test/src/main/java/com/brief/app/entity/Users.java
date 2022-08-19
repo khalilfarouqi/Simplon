@@ -36,6 +36,8 @@ public class Users implements Serializable {
 	@Column(name = "Telephone")
 	private String Telephone;
 	
-	//Foreign key
+	@ManyToOne
+	@JoinColumn(name = "ID_Role")
+	private Role role;
 	
 }
