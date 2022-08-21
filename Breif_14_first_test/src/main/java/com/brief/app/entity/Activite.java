@@ -38,22 +38,21 @@ public class Activite implements Serializable {
 	@Column(name = "Etat")
 	private String Etat;
 	
-	//ID_User Participant ManytoMany
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_Exer")
-	private Exercice exer;
+	private Exercice exercice;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_User_res")
-	private Responsable respo;
+	private Responsable responsable;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
 			  name = "participant_activite", 
 			  joinColumns = @JoinColumn(name = "ID_Participant"), 
 			  inverseJoinColumns = @JoinColumn(name = "ID_Activite"))
-	private List<Participant> partticipant;
+	private List<Participant> participant;
 	
 
 }

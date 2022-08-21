@@ -24,6 +24,6 @@ public class Responsable extends Users {
 	@Column(name = "Etat")
 	private String Etat;
 	
-	@OneToMany(mappedBy = "Responsable")
+	@OneToMany(mappedBy = "responsable")
 	private List<Activite> activit;
 }

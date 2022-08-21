@@ -32,7 +32,7 @@ public class Exercice implements Serializable {
 	@Column(name = "Statut")
 	private String Statut;
 	
-	@OneToMany(mappedBy = "Exercice")
+	@OneToMany(mappedBy = "exercice")
 	private List<Activite> activit;
 	
 }

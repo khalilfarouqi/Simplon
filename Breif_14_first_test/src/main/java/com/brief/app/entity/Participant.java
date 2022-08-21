@@ -21,7 +21,7 @@ public class Participant extends Users {
 	@Column(name = "Structure")
 	private String Structure;
 	
-	@ManyToMany(mappedBy = "participantActivite", fetch = FetchType.EAGER)
+	@ManyToMany(/*mappedBy = "participant_activite",*/ fetch = FetchType.EAGER)
 	private List<Activite> activite;
 	
 }
