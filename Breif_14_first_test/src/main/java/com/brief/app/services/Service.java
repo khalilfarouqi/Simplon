@@ -6,12 +6,12 @@ public interface Service <T> {
 	
 	public T lister_One(long id);
 	
-	public List<T> lister_Toust();
+	public List<T> lister_Tous();
 	
 	public void Save(T t);
 	
 	public void Update(T t);
 	
-	public void Delete(T t);
+	public void Delete(long id);
 	
 }
