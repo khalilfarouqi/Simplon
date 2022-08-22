@@ -7,7 +7,8 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@DiscriminatorValue(value = "Participant")
+@Table(name = "Participant")
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Participant extends Users {
 	@Column(name = "Structure")
 	private String Structure;
 	
-	@ManyToMany(/*mappedBy = "participant_activite",*/ fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "participant", fetch = FetchType.EAGER)
 	private List<Activite> activite;
 	
 }

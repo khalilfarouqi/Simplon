@@ -28,7 +28,8 @@ public class Activite implements Serializable {
 
 	@Column(name = "type")
 	private String type;
-
+	
+	//@Temporal(TemporalType.DATE)
 	@Column(name = "DateDebut")
 	private Date DateDebut;
 

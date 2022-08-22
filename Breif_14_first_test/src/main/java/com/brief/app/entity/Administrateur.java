@@ -5,7 +5,8 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@DiscriminatorValue(value = "Administrateur")
+@Table(name = "Administrateur")
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

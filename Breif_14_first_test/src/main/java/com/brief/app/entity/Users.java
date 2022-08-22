@@ -8,6 +8,7 @@ import lombok.*;
 
 @Entity
 @Table(name="Users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +16,7 @@ public class Users implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 
 	@Column(name = "Nom")
