@@ -3,68 +3,45 @@ package com.brief.app.services;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.brief.app.entity.*;
 import com.brief.app.repository.*;
 
-public class ExcerciceServiceImpl implements Service<Exercice> {
+@Service
+public class ExcerciceServiceImpl implements IService<Exercice> {
 	
 	@Autowired
 	private ExerciceRepository exerciceRepo;
+	
+	public ExcerciceServiceImpl(ExerciceRepository exerciceRepo) {
+		super();
+		this.exerciceRepo = exerciceRepo;
+	}
 
 	@Override
 	public Exercice lister_One(long id) {
-		Exercice exercice = null;
-		try {
-			Optional<Exercice> optional = exerciceRepo.findById(id);
-			if (optional.isPresent()) {
-				exercice = optional.get();
-			} else {
-				throw new RuntimeException("Exercice not found for id :: " + id);
-			}
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return exercice;
+		return exerciceRepo.findById(id).get();
 	}
 
 	@Override
 	public List<Exercice> lister_Tous() {
-		List<Exercice> exercice = null;
-		try {
-			exercice = exerciceRepo.findAll();
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return exercice;
+		return exerciceRepo.findAll();
 	}
 
 	@Override
-	public void Save(Exercice t) {
-		try {
-			exerciceRepo.save(t);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public Exercice Save(Exercice t) {
+		return exerciceRepo.save(t);
 	}
 
 	@Override
-	public void Update(Exercice t) {
-		try {
-			//!!!!!!!!!!
-			exerciceRepo.save(t);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public Exercice Update(Exercice t) {
+		return exerciceRepo.save(t);
 	}
 
 	@Override
 	public void Delete(long id) {
-		try {
-			exerciceRepo.deleteById(id);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+		exerciceRepo.deleteById(id);
 	}
 
 }

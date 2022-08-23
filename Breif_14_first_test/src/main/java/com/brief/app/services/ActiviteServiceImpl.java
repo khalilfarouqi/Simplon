@@ -4,68 +4,45 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.brief.app.entity.*;
 import com.brief.app.repository.*;
 
-public class ActiviteServiceImpl implements Service<Activite> {
+@Service
+public class ActiviteServiceImpl implements IService<Activite> {
 	
 	@Autowired
 	private ActiviteRepository activiteRepo;
 	
+	public ActiviteServiceImpl(ActiviteRepository activiteRepo) {
+		super();
+		this.activiteRepo = activiteRepo;
+	}
+	
 	@Override
 	public Activite lister_One(long id) {
-		Activite activite = null;
-		try {
-			Optional<Activite> optional = activiteRepo.findById(id);
-			if (optional.isPresent()) {
-				activite = optional.get();
-			} else {
-				throw new RuntimeException("Activite not found for id :: " + id);
-			}
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return activite;
+		return activiteRepo.findById(id).get();
 	}
 
 	@Override
 	public List<Activite> lister_Tous() {
-		List<Activite> activite = null;
-		try {
-			activite = activiteRepo.findAll();
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return activite;
+		return activiteRepo.findAll();
 	}
 
 	@Override
-	public void Save(Activite t) {
-		try {
-			activiteRepo.save(t);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public Activite Save(Activite t) {
+		return activiteRepo.save(t);
 	}
 
 	@Override
-	public void Update(Activite t) {
-		try {
-			//!!!!!!!!!!
-			activiteRepo.save(t);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public Activite Update(Activite t) {
+		return activiteRepo.save(t);
 	}
 
 	@Override
 	public void Delete(long id) {
-		try {
-			activiteRepo.deleteById(id);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+		activiteRepo.deleteById(id);
 	}
 
 }

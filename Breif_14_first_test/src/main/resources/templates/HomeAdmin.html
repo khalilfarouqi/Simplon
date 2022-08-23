@@ -18,27 +18,36 @@
 			<h3>List Administrateur</h3>
 			
 			<hr/>
-			<a th:href="@{/addEmployeeForm}" class="btn btn-primary">Add Administrateur</a>
+			<a th:href="@{/addAdminForm}" class="btn btn-primary">Add Administrateur</a>
 			<br/><br/>
-			<table class="table table-bordered table-striped" id="employeeTable">
+			<table class="table table-bordered table-striped" id="adminTable">
 			
 				<thead>
 					<tr>
-						<th>Name</th>
 						<th>Email</th>
-						<th>Department</th>
-						<th>Actions</th>
+						<th>Login</th>
+						<th>Nom</th>
+						<th>Password</th>
+						<th>Prenom</th>
+						<th>Telephone</th>
+						<th>ID Role</th>
+						<th>Etat</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="employee: ${employees}">
-						<td th:text="${employee.name}" />
-						<td th:text="${employee.email}" />
-						<td th:text="${employee.department}" />
+					<tr th:each="admin: ${admins}">
+						<td th:text="${admin.email}"/>
+						<td th:text="${admin.login}"/>
+						<td th:text="${admin.nom}"/>
+						<td th:text="${admin.password}"/>
+						<td th:text="${admin.prenom}"/>
+						<td th:text="${admin.telephone}"/>
+						<td th:text="${admin.id_role}"/>
+						<td th:text="${admin.etat}"/>
 						<td>
-							<a th:href="@{/showUpdateForm(employeeId=${employee.id})}" class="btn btn-info">Update</a>
+							<a th:href="@{/showUpdateForm(Id=${admin.id})}" class="btn btn-info">Update</a>
 							
-							<a th:href="@{/deleteEmployee(employeeId=${employee.id})}" class="btn btn-danger ml-2">Delete</a>
+							<a th:href="@{/deleteAdmin(Id=${admin.id})}" class="btn btn-danger ml-2">Delete</a>
 						</td>
 					</tr>
 				</tbody>
@@ -50,7 +59,7 @@
 		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
 		<script>
 			$(document).ready(function() {
-				$("#employeeTable").DataTable({
+				$("#adminTable").DataTable({
 						'aoColumnDefs': [{
         				'bSortable': false,
         				'aTargets': [-1] /* 1st one, start by the right */

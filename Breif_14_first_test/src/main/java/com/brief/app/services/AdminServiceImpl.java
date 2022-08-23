@@ -7,67 +7,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.brief.app.entity.Administrateur;
 import com.brief.app.repository.AdministrateurRepository;
 
-import lombok.AllArgsConstructor;
+import org.springframework.stereotype.*;
 
-@AllArgsConstructor
-public class AdminServiceImpl implements Service<Administrateur> {
+@Service
+public class AdminServiceImpl implements IService<Administrateur> {
 	
 	@Autowired
 	private AdministrateurRepository adminRepo;
+	
+	public AdminServiceImpl(AdministrateurRepository adminRepo) {
+		super();
+		this.adminRepo = adminRepo;
+	}
 
 	@Override
 	public Administrateur lister_One(long id) {
-		Administrateur admin = null;
-		try {
-			Optional<Administrateur> optional = adminRepo.findById(id);
-			if (optional.isPresent()) {
-				admin = optional.get();
-			} else {
-				throw new RuntimeException("Admin not found for id :: " + id);
-			}
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return admin;
+		return adminRepo.findById(id).get();
 	}
 
 	@Override
 	public List<Administrateur> lister_Tous() {
-		List<Administrateur> admin = null;
-		try {
-			admin = adminRepo.findAll();
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return admin;
+		return adminRepo.findAll();
 	}
 
 	@Override
-	public void Save(Administrateur t) {
-		try {
-			adminRepo.save(t);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public Administrateur Save(Administrateur t) {
+		return adminRepo.save(t);
 	}
 
 	@Override
-	public void Update(Administrateur t) {
-		try {
-			//!!!!!!!!!!
-			adminRepo.save(t);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+	public Administrateur Update(Administrateur t) {
+		return adminRepo.save(t);
 	}
 
 	@Override
 	public void Delete(long id) {
-		try {
-			adminRepo.deleteById(id);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
+		adminRepo.deleteById(id);
 	}
 
 }
