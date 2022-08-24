@@ -1,6 +1,5 @@
-package com.brief.app.entity;
+package com.brief.app.model;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
@@ -12,12 +11,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Role implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Role {
 
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
@@ -27,7 +21,5 @@ public class Role implements Serializable {
 	
 	@OneToMany(mappedBy = "role")
 	private List<Users> users;
-
-	
 	
 }

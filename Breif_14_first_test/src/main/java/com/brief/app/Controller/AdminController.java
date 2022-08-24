@@ -1,6 +1,5 @@
 package com.brief.app.Controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -8,7 +7,8 @@ import com.brief.app.entity.Administrateur;
 import com.brief.app.services.*;
 
 
-@Controller
+@RestController
+@RequestMapping("/api/employees")
 public class AdminController {
 	
 	private IService<Administrateur> adminSercive;
