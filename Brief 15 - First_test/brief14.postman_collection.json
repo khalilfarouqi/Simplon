@@ -1,0 +1,795 @@
+{
+	"info": {
+		"_postman_id": "46fa3894-9530-4d2b-a0a4-32244e372545",
+		"name": "brief14",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20450551"
+	},
+	"item": [
+		{
+			"name": "CRUD Admin",
+			"item": [
+				{
+					"name": "AddAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"kkk\",\r\n    \"domaine\":\"ooo\",\r\n    \"type\":\"com\",\r\n    \"etat\":\"bom\",\r\n    \"prenom\":\"ous\",\r\n    \"telephone\":\"098754\",\r\n    \"email\":\"no@fjkkk.com\",\r\n    \"pasword\":\"1234\",\r\n    \"login\":\"admin\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllAdmin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAdmin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByIdAdmin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateAdmin",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"nom\": \"kkk\",\r\n    \"prenom\": \"ous\",\r\n    \"telephone\": \"098754\",\r\n    \"email\": \"no@fjkkk.com\",\r\n    \"login\": \"admin\",\r\n    \"pasword\": \"123\",\r\n    \"roles\": [\r\n        {\r\n                \"id\": 1,\r\n                \"name\": \"ADMIN\"\r\n            }\r\n    ],\r\n    \"etat\": \"bom\",\r\n    \"id\": 5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Respo",
+			"item": [
+				{
+					"name": "AddRespo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"kkk\",\r\n    \"domaine\":\"ooo\",\r\n    \"type\":\"com\",\r\n    \"etat\":\"bom\",\r\n    \"prenom\":\"ous\",\r\n    \"telephone\":\"098754\",\r\n    \"email\":\"no@fjkkk.com\",\r\n    \"pasword\":\"$2a$12$ZjTBFR5CCSyieV0ipFWkdOLxr5lVAT8HjkvUtF6kHO/TaSiUOBaYq\",\r\n    \"login\":\"resp\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/responsable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"responsable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllRespo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/responsable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"responsable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteRespo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/responsable/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"responsable",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByIdRespo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/responsable/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"responsable",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateRespo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"nom\": \"kkk\",\r\n        \"prenom\": \"ous\",\r\n        \"telephone\": \"098754\",\r\n        \"email\": \"no@fjkkk.com\",\r\n        \"login\": \"homous\",\r\n        \"pasword\": \"1234\",\r\n        \"domaine\": \"home\",\r\n        \"type\": \"yyy\",\r\n        \"etat\": \"bom\",\r\n        \"activite\": []\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/responsable/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"responsable",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Participant",
+			"item": [
+				{
+					"name": "AddParticipant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"uuuu\",\r\n    \"domaine\":\"iii\",\r\n    \"type\":\"com\",\r\n    \"etat\":\"bom\",\r\n    \"prenom\":\"ous\",\r\n    \"telephone\":\"098754\",\r\n    \"email\":\"no@fjkkk.com\",\r\n    \"pasword\":\"$2a$12$iWistmoUuuPCqUw7CdXz7O61iQuLvd9vzB0hSUQmWi/w/UiBzSyZS\",\r\n    \"login\":\"part\",\r\n    \"structure\": \"rrr\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/participant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"participant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllParticipant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/participant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"participant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteParticipant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/participant/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"participant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByIdParticipant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/participant/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"participant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateParticipant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nom\": \"uuuu\",\r\n        \"prenom\": \"ous\",\r\n        \"telephone\": \"098754\",\r\n        \"email\": \"no@fjkkk.com\",\r\n        \"login\": \"homous\",\r\n        \"pasword\": \"1234\",\r\n        \"domaine\": \"home\",\r\n        \"structure\": \"yyy\"\r\n\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/participant/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"participant",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Activite",
+			"item": [
+				{
+					"name": "AddActivite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"titre\": \"1234\",\r\n        \"descriptif\": \"gjgjgjgkgllmffm\",\r\n        \"type\": \"abderaajlsdh\",\r\n        \"etat\": \"098754\",\r\n        \"responsableId\": 1,\r\n        \"exerciceId\": 1,\r\n        \"participant\": [],\r\n        \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n        \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/activite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByIdActivite",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titre\": \"1234\",\r\n    \"descriptif\": \"gjgjgjgkgllmffm\",\r\n    \"type\": \"abderaajlsdh\",\r\n    \"etat\": \"098754\",\r\n    \"responsableId\": 1,\r\n    \"exercice\": [],\r\n    \"participant\": [],\r\n    \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n    \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/activite/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activite",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllActivite",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "4d8c8359-3d8a-4342-9924-5b6db2f44b1c",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titre\": \"1234\",\r\n    \"descriptif\": \"gjgjgjgkgllmffm\",\r\n    \"type\": \"abderaajlsdh\",\r\n    \"etat\": \"098754\",\r\n    \"responsableId\": 1,\r\n    \"exercice\": [],\r\n    \"participant\": [],\r\n    \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n    \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/activite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteActivite",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/activite/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activite",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateActivite",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"activite_Id\": 1,\r\n    \"titre\": \"yyy\",\r\n    \"descriptif\": \"gjgjgjgkgllmffm\",\r\n    \"type\": \"abderaajlsdh\",\r\n    \"etat\": \"098754\",\r\n    \"responsableId\": 2,\r\n    \"exercice\": {\r\n        \"exercice_Id\": 2,\r\n        \"statut\": \"rrr\",\r\n        \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n        \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n    },\r\n    \"participant\": [],\r\n    \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n    \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/activite/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activite",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Exercice",
+			"item": [
+				{
+					"name": "AddExercice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n    \"statut\": \"uuu\",\r\n    \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n    \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/exercice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByIdExercice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titre\": \"1234\",\r\n    \"descriptif\": \"gjgjgjgkgllmffm\",\r\n    \"type\": \"abderaajlsdh\",\r\n    \"etat\": \"098754\",\r\n    \"responsableId\": 1,\r\n    \"exercice\": [],\r\n    \"participant\": [],\r\n    \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n    \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/exercice/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercice",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllExercice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titre\": \"1234\",\r\n    \"descriptif\": \"gjgjgjgkgllmffm\",\r\n    \"type\": \"abderaajlsdh\",\r\n    \"etat\": \"098754\",\r\n    \"responsableId\": 1,\r\n    \"exercice\": [],\r\n    \"participant\": [],\r\n    \"dateFin\": \"2002-03-12T00:00:00.000+00:00\",\r\n    \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/exercice",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteExercice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/activite/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"activite",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateExercice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"statut\": \"ttt\",\r\n        \"dateFin\": \"2004-03-12T00:00:00.000+00:00\",\r\n        \"dateDebut\": \"2002-02-12T00:00:00.000+00:00\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/exercice/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"exercice",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "max-age=0"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID=62E7A2699FFD018308F07A23EFD8F17D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost:8080"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost:8080/login?error"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "document"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "navigate"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "Sec-Fetch-User",
+						"value": "?1"
+					},
+					{
+						"key": "Upgrade-Insecure-Requests",
+						"value": "1"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"104\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"104\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
