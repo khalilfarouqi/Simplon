@@ -1,13 +1,11 @@
 package com.app.entity;
 
-import java.util.List;
-
 import javax.persistence.*;
 
 import lombok.*;
 
 @Entity
-@Table(name="Clients")
+@Table(name = "Clients")
 @EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
@@ -31,8 +29,5 @@ public class Client extends User {
 	
 	@Column(name = "Sexe")
 	private String Sexe;
-	
-	@OneToMany(mappedBy = "client")
-	private List<Reservation> reservation;
 
 }

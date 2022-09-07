@@ -7,12 +7,12 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="Users")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "Users")
+@Inheritance(strategy=InheritanceType.JOINED)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public abstract class User {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;

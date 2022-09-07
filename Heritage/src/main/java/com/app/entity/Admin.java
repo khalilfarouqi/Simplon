@@ -5,7 +5,7 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="Admins")
+@Table(name = "Admins")
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Admin extends User {
