@@ -5,9 +5,9 @@ import javax.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="Administrateurs")
-@EqualsAndHashCode(callSuper = true)
-@Data
+@Table(name="Admins")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Admin extends User {
