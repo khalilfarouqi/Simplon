@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.*;
+
 import lombok.*;
 
 @Entity
@@ -35,7 +37,7 @@ public class Client extends User {
 	@Column(name = "DateNai")
 	private Date DateNai;
 	
-	@OneToMany(mappedBy = "produit")
-	private List<Commande> commande;
+//	@OneToMany(mappedBy = "produit")
+//	private List<Commande> commande;
 	
 }

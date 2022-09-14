@@ -2,6 +2,7 @@ package com.app.sevice.impli;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.*;
@@ -12,6 +13,7 @@ import com.app.sevice.IService;
 @Service
 public class ServiceProduitImpli implements IService<Produit> {
 	
+	@Autowired
 	private ProduitRepository produitRepository;
 
 	@Override
@@ -43,7 +45,7 @@ public class ServiceProduitImpli implements IService<Produit> {
 		existingProduit.setCompany(produit.getCompany());
 		existingProduit.setPrix(produit.getPrix());
 		existingProduit.setDateExp(produit.getDateExp());
-//		existingProduit.setCategorie(produit.getCategorie());
+		existingProduit.setCategorie(produit.getCategorie());
 //		existingProduit.setCommande(produit.getCommande());
 
 		produitRepository.save(existingProduit);

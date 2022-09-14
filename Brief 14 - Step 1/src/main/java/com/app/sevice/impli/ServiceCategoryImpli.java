@@ -2,6 +2,7 @@ package com.app.sevice.impli;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Categorie;
@@ -12,6 +13,7 @@ import com.app.sevice.IService;
 @Service
 public class ServiceCategoryImpli implements IService<Categorie> {
 	
+	@Autowired
 	private CategorieRepository categoryRepository;
 
 	@Override

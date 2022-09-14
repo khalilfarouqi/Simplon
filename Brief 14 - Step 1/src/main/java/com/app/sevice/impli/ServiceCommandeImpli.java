@@ -2,6 +2,7 @@ package com.app.sevice.impli;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.entity.Commande;
@@ -12,6 +13,7 @@ import com.app.sevice.IService;
 @Service
 public class ServiceCommandeImpli implements IService<Commande> {
 	
+	@Autowired
 	private CommandeRepository commandeRepository;
 
 	@Override
@@ -42,7 +44,7 @@ public class ServiceCommandeImpli implements IService<Commande> {
 		existingCommande.setMontant(commande.getMontant());
 		existingCommande.setValidation(commande.getValidation());
 		existingCommande.setProduit(commande.getProduit());
-//		existingCommande.setClient(commande.getClient());
+		existingCommande.setClient(commande.getClient());
 
 		commandeRepository.save(existingCommande);
 

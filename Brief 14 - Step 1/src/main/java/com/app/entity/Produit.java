@@ -4,6 +4,10 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.*;
 
 @Entity
@@ -11,6 +15,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "ID")
 public class Produit {
 	
 	@Id@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +33,8 @@ public class Produit {
 	@Column(name = "Prix")
 	private Double Prix;
 	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "DateExp")
 	private Date DateExp;
 	
@@ -35,6 +42,6 @@ public class Produit {
 	@JoinColumn(name = "ID_Categorie")
 	private Categorie categorie;
 	
-	@OneToMany(mappedBy = "client")
-	private List<Commande> commande;
+//	@OneToMany(mappedBy = "client")
+//	private List<Commande> commande;
 }
