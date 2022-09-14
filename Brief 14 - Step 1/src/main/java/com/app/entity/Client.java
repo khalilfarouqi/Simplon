@@ -8,8 +8,8 @@ import lombok.*;
 
 @Entity
 @Table(name="Clients")
-@Getter
-@Setter
+@EqualsAndHashCode(callSuper = true)
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Client extends User {
