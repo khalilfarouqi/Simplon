@@ -1,7 +1,5 @@
 package com.app.entity;
 
-import java.util.Collection;
-
 import javax.persistence.*;
 
 import lombok.*;
@@ -23,11 +21,8 @@ public class User {
 	@Column(name = "Password")
 	private String Password;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "users_roles",
-			joinColumns = @JoinColumn(name = "ID_User", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name = "ID_Role", referencedColumnName = "id"))
-	private Collection<Role> role;
+	@Column(name = "Role", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Role role;
 	
 }

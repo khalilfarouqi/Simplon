@@ -4,10 +4,6 @@ import java.util.*;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import lombok.*;
 
 @Entity
@@ -34,7 +30,7 @@ public class Produit {
 	private Double Prix;
 	
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "yyyy-MM-dd")
+//	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "DateExp")
 	private Date DateExp;
 	
